@@ -1,0 +1,39 @@
+{
+  "pages":[
+    "pages/home/home",
+    "pages/wish/wish",
+    "pages/personal/personal"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#737373",
+    "selectedColor": "#2A82E4",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "逛逛",
+        "iconPath": "asset/tabbaricon/home.png",
+        "selectedIconPath": "asset/tabbaricon/home-selected.png"
+      },
+      {
+          "pagePath": "pages/wish/wish",
+          "text": "想买",
+          "iconPath": "asset/tabbaricon/wish.png",
+          "selectedIconPath": "asset/tabbaricon/wish-selected.png"
+      },
+      {
+          "pagePath": "pages/personal/personal",
+          "text": "个人",
+          "iconPath": "asset/tabbaricon/personal.png",
+          "selectedIconPath": "asset/tabbaricon/personal-selected.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}
