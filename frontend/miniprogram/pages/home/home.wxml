@@ -1,0 +1,32 @@
+
+<view class="{{homeTop}}">
+  <view id="logo">
+    <text bindtap="back">{{logoFont}}</text>
+  </view>
+</view>
+
+<view id="search">
+  <van-search
+    model:value="{{ searchValue }}"
+    shape="round"
+    placeholder="请输入搜索关键词"
+    background="#2A82E4"
+    bind:search="onSearch"
+    field-class="customclass"
+  />
+</view>
+
+<view wx:if="{{!indexEmpty}}">
+  <!-- <text>商品</text>
+  <text>默认排序</text> -->
+  <van-dropdown-menu active-color="#2A82E4">
+    <van-dropdown-item value="{{ value1 }}" options="{{ option1 }}" />
+    <van-dropdown-item value="{{ value2 }}" options="{{ option2 }}" />
+  </van-dropdown-menu>
+</view>
+
+<view id="empty">
+  <van-empty description="主页尚未开发" wx:if="{{indexEmpty}}"/>
+  <van-empty description="数据库还在开发中,{{searchValue}}的搜索结果为空" wx:else/>
+</view>
+

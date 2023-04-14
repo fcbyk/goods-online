@@ -1,7 +1,0 @@
-{
-  "navigationStyle": "custom",
-  "usingComponents": {
-    "van-empty": "@vant/weapp/empty/index",
-    "van-search": "@vant/weapp/search/index"
-  }
-}

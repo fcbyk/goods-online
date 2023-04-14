@@ -1,8 +1,0 @@
-{
-  "name": "goods-online",
-  "version": "1.0.0",
-  "main": "app.js",
-  "dependencies": {
-    "@vant/weapp": "^1.10.14"
-  }
-}

@@ -1,7 +1,0 @@
-{
-  "description": "项目私有配置文件",
-  "projectname": "goods-online",
-  "setting": {
-    "compileHotReLoad": true
-  }
-}

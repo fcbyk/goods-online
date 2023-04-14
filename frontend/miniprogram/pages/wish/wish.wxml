@@ -1,0 +1,20 @@
+
+<view class="card">
+  <van-swipe-cell right-width="{{ 100 }}" bind:click="onClose">
+      <view class="contain"></view>
+      <view slot="right" class="card-delete">删除</view>
+  </van-swipe-cell>
+</view>
+
+<view class="bottom">
+<view class="left">
+  <checkbox>全选</checkbox>
+</view>
+<view class="right">
+  <view>
+    <text>合计</text>
+    <text>￥0</text>
+  </view>
+  <button size="mini">生成出行路线</button>
+</view>
+</view>
