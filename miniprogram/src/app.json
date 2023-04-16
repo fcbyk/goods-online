@@ -2,7 +2,8 @@
   "pages":[
     "pages/home/home",
     "pages/wish/wish",
-    "pages/personal/personal"
+    "pages/personal/personal",
+    "pages/test/test"
   ],
   "window":{
     "backgroundTextStyle":"light",
