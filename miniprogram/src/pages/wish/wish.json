@@ -2,6 +2,6 @@
   "navigationBarTitleText": "想买的商品",
   "navigationBarBackgroundColor": "#FAFAFA",
   "usingComponents": {
-    "van-swipe-cell": "@vant/weapp/swipe-cell/index"
+    "wishcard":"../../components/wishcard/wishcard"
   }
 }
