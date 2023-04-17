@@ -1,0 +1,34 @@
+export default [
+  {
+    src:"../../asset/sort/附近.svg",
+    name:"附近"
+  },
+  {
+    src:"../../asset/sort/最新产品.svg",
+    name:"最新发布"
+  },
+  {
+    src:"../../asset/sort/蔬菜.svg",
+    name:"买菜"
+  },
+  {
+    src:"../../asset/sort/早餐.svg",
+    name:"早餐"
+  },
+  {
+    src:"../../asset/sort/椰子.svg",
+    name:"水果"
+  },
+  {
+    src:"../../asset/sort/超市.svg",
+    name:"超市"
+  },
+  {
+    src:"../../asset/sort/商店.svg",
+    name:"便利店"
+  },
+  {
+    src:"../../asset/sort/二手交易.svg",
+    name:"二手"
+  },
+]

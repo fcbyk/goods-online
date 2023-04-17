@@ -14,17 +14,5 @@
     "showShadowRootInWxmlPanel": true,
     "showES6CompileOption": false
   },
-  "condition": {
-    "miniprogram": {
-      "list": [
-        {
-          "name": "",
-          "pathName": "pages/personal/personal",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        }
-      ]
-    }
-  }
+  "condition": {}
 }

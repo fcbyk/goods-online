@@ -25,8 +25,31 @@
   </van-dropdown-menu>
 </view>
 
+
+
 <view id="empty">
-  <van-empty description="主页尚未开发" wx:if="{{indexEmpty}}"/>
-  <van-empty description="数据库还在开发中,{{searchValue}}的搜索结果为空" wx:else/>
+  <van-notice-bar mode="closeable" text="该小程序目前还未连接服务器，页面数据来自Apifox云端Mock" scrollable />
+  <view  wx:if="{{indexEmpty}}">
+    <view class="sort">
+    <view wx:for="{{sort}}" wx:key="index">
+      <image src="{{item.src}}" mode="widthFix"></image>
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+  <view class="recommend">
+      <text>推荐</text>
+      <view class="recommend-box">
+        <view class="goods-box" wx:for="{{recommend}}" wx:key="index">
+          <image src="{{item.image}}"></image>
+          <text>{{item.name}}</text>
+        </view>
+      </view>
+  </view>
+  </view>
+  <van-empty description="服务器端还在开发中,{{searchValue}}的搜索结果为空" wx:else/>
 </view>
+
+
+
+
 

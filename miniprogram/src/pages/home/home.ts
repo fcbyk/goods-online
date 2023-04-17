@@ -1,3 +1,5 @@
+import classification from "../../pagesData/classification"
+import {request} from "../../request/index"
 
 Page({
 
@@ -18,6 +20,8 @@ Page({
     ],
     value1: 0,
     value2: 'a',
+    sort: classification,
+    recommend:[]
   },
 
   onSearch() {
@@ -49,7 +53,18 @@ Page({
       indexEmpty:true,
       logoFont:'线上逛店',
     })
-  }
+  },
 
+  onLoad(){
+    request({
+      url:"/recommend",
+      method: 'GET'
+    }).then((res:any)=>{
+      this.setData({
+        recommend:res.data.data
+      })
+    })
+  }
+  
 
 })
