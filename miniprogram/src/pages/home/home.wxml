@@ -28,7 +28,6 @@
 
 
 <view id="empty">
-  <van-notice-bar mode="closeable" text="该小程序目前还未连接服务器，页面数据来自Apifox云端Mock" scrollable />
   <view  wx:if="{{indexEmpty}}">
     <view class="sort">
     <view wx:for="{{sort}}" wx:key="index">

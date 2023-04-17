@@ -10,6 +10,8 @@
     <text>合计</text>
     <text>￥0</text>
   </view>
-  <button size="mini">生成出行路线</button>
+  <navigator url="../going/going">
+    <button size="mini">生成出行路线</button>
+  </navigator>
 </view>
 </view>

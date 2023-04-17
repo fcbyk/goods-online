@@ -3,7 +3,9 @@
     "pages/home/home",
     "pages/wish/wish",
     "pages/personal/personal",
-    "pages/test/test"
+    "pages/undev/undev",
+    "pages/more/more",
+    "pages/going/going"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -18,20 +20,20 @@
       {
         "pagePath": "pages/home/home",
         "text": "逛逛",
-        "iconPath": "asset/tabbaricon/home.png",
-        "selectedIconPath": "asset/tabbaricon/home-selected.png"
+        "iconPath": "assets/tabbaricon/home.png",
+        "selectedIconPath": "assets/tabbaricon/home-selected.png"
       },
       {
           "pagePath": "pages/wish/wish",
           "text": "想买",
-          "iconPath": "asset/tabbaricon/wish.png",
-          "selectedIconPath": "asset/tabbaricon/wish-selected.png"
+          "iconPath": "assets/tabbaricon/wish.png",
+          "selectedIconPath": "assets/tabbaricon/wish-selected.png"
       },
       {
           "pagePath": "pages/personal/personal",
           "text": "个人",
-          "iconPath": "asset/tabbaricon/personal.png",
-          "selectedIconPath": "asset/tabbaricon/personal-selected.png"
+          "iconPath": "assets/tabbaricon/personal.png",
+          "selectedIconPath": "assets/tabbaricon/personal-selected.png"
       }
     ]
   },

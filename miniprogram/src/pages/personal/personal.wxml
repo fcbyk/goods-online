@@ -1,5 +1,5 @@
 <view class="top">
-  <view class="img"><image src="../../asset/demo/user.png" mode="widthFix"></image></view>
+  <view class="img"><image src="../../assets/demo/user.jpg" mode="widthFix"></image></view>
   <view class="info">
       <text>不是不余</text>
       <text>关注 0 | 粉丝 0</text>
@@ -22,26 +22,24 @@
 </view>
 
 <van-cell-group>
-  <van-cell title="发布商品" is-link icon="edit" url="../test/test" size="large" />
-  <van-cell title="我的发布" is-link icon="passed" url="../test/test" size="large" />
-  <van-cell title="草稿箱" is-link icon="description" url="../test/test" size="large" />
-  <van-cell title="审核中" is-link icon="underway-o" url="../test/test" size="large" />
-  <van-cell title="数据中心" is-link icon="chart-trending-o" url="../test/test" size="large" />
+  <van-cell title="发布商品" is-link icon="edit" url="../undev/undev" size="large" />
+  <van-cell title="我的发布" is-link icon="passed" url="../undev/undev" size="large" />
+  <van-cell title="草稿箱" is-link icon="description" url="../undev/undev" size="large" />
+  <van-cell title="审核中" is-link icon="underway-o" url="../undev/undev" size="large" />
+  <van-cell title="数据中心" is-link icon="chart-trending-o" url="../undev/undev" size="large" />
 </van-cell-group>
 
 <view style="height: 30rpx;"></view>
 
 <van-cell-group>
-  <van-cell title="发布店铺" is-link icon="shop-o" url="../test/test" size="large" />
-  <van-cell title="店主认证" is-link icon="award-o" url="../test/test" size="large" />
+  <van-cell title="发布店铺" is-link icon="shop-o" url="../undev/undev"size="large" />
+  <van-cell title="店主认证" is-link icon="award-o" url="../undev/undev"size="large" />
 </van-cell-group>
 
 <view style="height: 30rpx;"></view>
 
 <van-cell-group>
-  <van-cell title="更多" is-link  url="../test/test" size="large" icon="ellipsis"/>
-  <!-- <van-cell title="反馈与帮助" is-link  url="../test/test" size="large" />
-  <van-cell title="关于线上逛店" is-link  url="../test/test" size="large" /> -->
+  <van-cell title="更多" is-link  url="../more/more" size="large" icon="ellipsis"/>
 </van-cell-group>
 
 
