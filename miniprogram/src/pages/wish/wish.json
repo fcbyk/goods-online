@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "想买的商品",
-  "navigationBarBackgroundColor": "#FAFAFA",
-  "usingComponents": {
-    "wishcard":"../../components/wishcard/wishcard"
-  }
-}

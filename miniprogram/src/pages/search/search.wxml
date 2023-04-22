@@ -1,0 +1,9 @@
+<!--pages/search/search.wxml-->
+<view id="search">
+  <van-search
+    shape="round"
+    placeholder="请输入搜索关键词"
+    background="#2A82E4"
+    field-class="customclass"
+  />
+</view>

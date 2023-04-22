@@ -1,15 +1,14 @@
 {
   "pages":[
-    "pages/home/home",
-    "pages/wish/wish",
-    "pages/personal/personal",
-    "pages/undev/undev",
-    "pages/more/more",
-    "pages/going/going"
+    "pages/tab1/tab1",
+    "pages/tab2/tab2",
+    "pages/tab3/tab3",
+    "pages/search/search",
+    "pages/dev/dev"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#FAFAFA",
     "navigationBarTextStyle":"black"
   },
   "tabBar": {
@@ -18,25 +17,28 @@
     "backgroundColor": "#ffffff",
     "list": [
       {
-        "pagePath": "pages/home/home",
+        "pagePath": "pages/tab1/tab1",
         "text": "逛逛",
-        "iconPath": "assets/tabbaricon/home.png",
-        "selectedIconPath": "assets/tabbaricon/home-selected.png"
+        "iconPath": "./assets/icon/tab1.png",
+        "selectedIconPath": "./assets/icon/tab1-active.png"
       },
       {
-          "pagePath": "pages/wish/wish",
-          "text": "想买",
-          "iconPath": "assets/tabbaricon/wish.png",
-          "selectedIconPath": "assets/tabbaricon/wish-selected.png"
+          "pagePath": "pages/tab2/tab2",
+          "text": "去买",
+          "iconPath": "./assets/icon/tab2.png",
+          "selectedIconPath": "./assets/icon/tab2-active.png"
       },
       {
-          "pagePath": "pages/personal/personal",
+          "pagePath": "pages/tab3/tab3",
           "text": "个人",
-          "iconPath": "assets/tabbaricon/personal.png",
-          "selectedIconPath": "assets/tabbaricon/personal-selected.png"
+          "iconPath": "./assets/icon/tab3.png",
+          "selectedIconPath": "./assets/icon/tab3-active.png"
       }
     ]
   },
   "sitemapLocation": "sitemap.json",
-  "lazyCodeLoading": "requiredComponents"
-}
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {
+    "van-icon": "@vant/weapp/icon/index"
+  }
+} 
