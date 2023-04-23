@@ -1,1 +1,91 @@
-/* pages/tab3/tab3.wxss */
+.flexbox(
+  @flex-direction:row,
+  @justify-content:center, 
+  @align-items:center, 
+  @flex-wrap:wrap
+  ){
+  display: flex;
+  flex-direction:@flex-direction;
+  justify-content: @justify-content;
+  align-items: @align-items;
+  flex-wrap: @flex-wrap;
+}
+
+.login{
+  background-color: #ffffff;
+  margin-bottom: 30rpx;
+  color: black;
+  .flexbox(row,flex-start);
+  padding-bottom: 20rpx;
+  .img{
+    >image{
+      width: 150rpx;
+      height: 150rpx;
+      border-radius: 50%;
+      margin-left: 50rpx;
+      margin-right: 30rpx;
+    }
+  }
+  .info{
+    display: flex;
+    .flexbox(column,flex-start,flex-start);
+    text:nth-child(1){
+      font-size: 40rpx;
+      margin-bottom: 10rpx;
+    }
+    text:nth-child(2){
+      font-size: 23rpx;
+      color: rgb(50, 50, 50);
+    }
+  }
+}
+
+.collect{
+  background-color: #ffffff;
+  margin-bottom: 30rpx;
+  .flexbox();
+  padding: 20rpx 0rpx;
+  font-size: small;
+  .col-item{
+    .flexbox(column);
+    margin: 0rpx 85rpx;
+    text{
+      margin-top: 5rpx;
+    }
+  }
+}
+
+.popup{
+  padding: 50rpx;
+  padding-bottom: 6vh;
+  .flexbox(column,flex-start,flex-start);
+  text:nth-child(1){
+    font-size: 40rpx;
+    font-weight: bold;
+    line-height: 70rpx;
+  }
+  text:nth-child(2){
+    color: rgb(50, 50, 50);
+  }
+  view:nth-child(3){
+    height: 100rpx;
+    width: 90vw;
+    margin-top: 30rpx;
+    .flexbox(row);
+  }
+
+  .loginbtn{
+    margin: 30rpx;
+    height: 80rpx;
+    width: 250rpx;
+    border-radius: 20rpx;
+    background-color: rgb(144, 144, 144);
+    text-align: center;
+    line-height: 80rpx;
+    font-size: 35rpx;
+    color: rgb(255, 255, 255);
+    &.allow{
+      background-color: #0e783a;
+    }
+  }
+}

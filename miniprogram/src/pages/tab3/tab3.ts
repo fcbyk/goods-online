@@ -1,66 +1,67 @@
-// pages/tab3/tab3.ts
+import tab3collect from "../../data/tab3collect"
+import tab3cell from "../../data/tab3cell"
+import { request } from "../../utils/request"
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    tab3collect,
+    tab3cell,
+    isLogin:false,
+    user:{},
+    show:false
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad() {
-
+  popup(){
+    this.setData({
+      show:true
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  // 用户点击登录
+  login(){
+    wx.login({
+      timeout:5000,
+      success:(loginRes)=>{
+        request({
+          url:"/user/login",
+          method:"POST",
+          data:loginRes.code
+        }).then((res:any)=>{
+          wx.setStorageSync("identity",res.data.data)
+          this.setUserInfo()
+          this.getWish()
+          this.onClose()
+        })
+      }
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
+  // 获取用户想买的商品列表
+  getWish(){
+    request({
+      url:"/wish",
+      method:"GET",
+    }).then((res:any)=>{
+      wx.setStorageSync("wish",res.data.data)
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
+  // 更新登录状态
+  setUserInfo(){
+    this.setData({
+      isLogin:wx.getStorageSync("identity"),
+      user:wx.getStorageSync("identity")
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
+  // 生命周期钩子
+  onShow(){
+    this.setUserInfo()
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  onClose(){
+    this.setData({
+      show:false
+    })
   }
 })

@@ -1,2 +1,12 @@
-<!--pages/tab2/tab2.wxml-->
-<text>pages/tab2/tab2.wxml</text>
+
+<view wx:if="{{!isLogin}}" class="logout">
+  <image src="../../assets/img/你还未登录哦.svg"></image>
+  <text>你还未登录哦</text>
+</view>
+
+<view wx:else class="logout">
+    <image src="../../assets/img/空空如也.svg"></image>
+    <text>这里空空如也，快去逛逛吧</text>
+    <view style="height: 30rpx"></view>
+    <van-button round color="linear-gradient(to right, #4bb0ff, #6149f6)" bind:click="goto">去逛逛</van-button>
+</view>

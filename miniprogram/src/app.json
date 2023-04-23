@@ -4,7 +4,9 @@
     "pages/tab2/tab2",
     "pages/tab3/tab3",
     "pages/search/search",
-    "pages/dev/dev"
+    "pages/dev/dev",
+    "pages/others/others",
+    "pages/user/user"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -39,6 +41,10 @@
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents",
   "usingComponents": {
-    "van-icon": "@vant/weapp/icon/index"
+    "van-icon": "@vant/weapp/icon/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-field": "@vant/weapp/field/index"
   }
 } 

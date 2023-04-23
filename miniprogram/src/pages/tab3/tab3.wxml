@@ -1,2 +1,49 @@
-<!--pages/tab3/tab3.wxml-->
-<text>pages/tab3/tab3.wxml</text>
+<view style="height: 10vh;background-color: #ffffff;"></view>
+
+<view class="login" wx:if="{{!isLogin}}" bindtap="popup">
+  <view class="img">
+    <image src="../../assets/img/logout.jpeg" mode="widthFix"></image>
+  </view>
+  <view class="info">
+    <text>点击登录</text>
+  </view>
+</view>
+
+<navigator class="login" wx:else open-type="navigate" url="../user/user">
+  <view class="img">
+    <image src="{{user.avatar}}" mode="widthFix"></image>
+  </view>
+  <view class="info" >
+    <text>{{user.name}}</text>
+    <text>关注 0 | 粉丝 0</text>
+  </view>
+</navigator>
+
+<view class="collect">
+  <navigator class="col-item" wx:for="{{tab3collect}}" wx:key="index" url="{{item.url}}" open-type="navigate">
+    <van-icon name="{{item.icon}}" size="30px"/>
+    <text>{{item.name}}</text>
+  </navigator>
+</view>
+
+<view wx:for="{{tab3cell}}" wx:key="index" wx:for-item="cell">
+  <van-cell-group wx:for="{{cell}}" wx:key="index">
+    <van-cell title="{{item.name}}" is-link icon="{{item.icon}}" url="{{item.url}}" size="large" />
+  </van-cell-group>
+  <view style="height: 30rpx;"></view>
+</view>
+
+<van-popup
+  show="{{ show }}"
+  round
+  position="bottom"
+>
+<view class="popup">
+  <text>获取你的微信id</text>
+  <text>用于小程序登录</text>
+  <view>
+    <view class="loginbtn refuse" bindtap="onClose">拒绝</view>
+    <view class="loginbtn allow" bindtap="login">允许</view>
+  </view>
+</view>
+</van-popup>

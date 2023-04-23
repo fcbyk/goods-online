@@ -18,7 +18,7 @@ export const request = (obj:RequestOption) => {
       wx.request({
           ...obj,
           header: {
-            'Identity': wx.getStorageSync("session")
+            'Identity': wx.getStorageSync("identity").userid
           },
           url: baseUrl + obj.url,
           success: (res) => {
