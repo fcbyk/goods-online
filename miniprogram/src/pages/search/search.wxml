@@ -4,6 +4,29 @@
     shape="round"
     placeholder="请输入搜索关键词"
     background="#2A82E4"
+    focus="{{isfocus}}"
     field-class="customclass"
+    bind:search="onSearch"
   />
 </view>
+
+<van-dropdown-menu active-color="#2A82E4" wx:if="{{goodsList.length>0}}">
+    <van-dropdown-item value="{{ value1 }}" options="{{ option1 }}" />
+    <van-dropdown-item value="{{ value2 }}" options="{{ option2 }}" />
+</van-dropdown-menu>
+
+<!-- 搜索提示 -->
+<van-empty image="search" description="未找到{{searchValue}}相关的商品" wx:if="{{goodsList.length==0}}"/>
+
+<view class="goodsList" >
+    <navigator class="goodsbox" wx:for="{{goodsList}}" wx:key="index" url="../detail/detail?gid={{item.gid}}">
+      <image src="{{item.image}}"></image>
+      <view class="goodsdes">
+        <text>{{item.name}}</text>
+        <text>￥{{item.price}}</text>
+        <van-tag color="#F7F7F7" text-color="#000000" round size="medium">{{item.store}}   进店></van-tag>
+        <van-tag color="#10872A" text-color="#ffffff" round size="medium">该信息由开发者提供</van-tag>
+      </view>
+    </navigator>
+</view>
+

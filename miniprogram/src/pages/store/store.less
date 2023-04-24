@@ -1,0 +1,61 @@
+.top{
+  height: 200rpx;
+  background-color: #ffffff;
+  margin-bottom: 30rpx;
+  display: flex;
+  .top-icon{
+    height: 100%;
+    width: 200rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    van-icon{
+      border: rgba(0, 0, 0, 0.39) 1rpx solid;
+      border-radius: 15rpx;
+      padding: 10rpx;
+      font-size: 100rpx;
+    }
+  }
+  .top-info{
+    height: 100%;
+    width: 100rpx;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    view:nth-child(1){
+      font-size: 35rpx;
+    }
+    view:nth-child(2){
+      margin-top: 10rpx;
+      font-size: 25rpx;
+      text-overflow: ellipsis;
+    }
+    view:nth-child(3){
+      margin-top: 10rpx;
+      font-size: 25rpx;
+      text-overflow: ellipsis;
+      color: rgb(83, 83, 83);
+      text{
+        margin-right: 15rpx;
+      }
+    }
+  }
+  .top-btn{
+    height: 100%;
+    width: 200rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    van-tag{
+      margin-bottom: 20rpx;
+      >view{
+        width: 100rpx;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}

@@ -1,49 +1,41 @@
 import { request } from "../../utils/request"
 
-const option1 = [
-  { text: '商品', value: 0 },
-  { text: '店铺', value: 1 }
-]
-
-const option2 = [
-  { text: '默认排序', value: 'a' },
-  { text: '距离排序', value: 'b' },
-  { text: '可信度排序', value: 'c' },
-]
-
-// pages/search/search.ts
 Page({
 
   data: {
-    isfocus:true,
-    goodsList:null,
-    searchValue:"",
-    option1,
-    option2,
-    value1:0,
-    value2:'a'
+    gid:"",
+    detail:{pics:[]}
   },
 
-  // 根据关键词搜索
-  onSearch(event:any) {
+  onLoad(options:any) {
     this.setData({
-      searchValue:event.detail
+      gid:options.gid
     })
-    request({
-      url: '/goods/search/'+ event.detail,
-      method: 'GET'
-    }).then((res:any)=>{
-      this.setData({
-        goodsList:res.data.data
+    this.getDetail()
+  },
+
+  getDetail(){
+      request({
+        url:"/goods/detail/"+this.data.gid
+      }).then((res:any)=>{
+        this.setData({
+          detail:res.data.data
+        })
       })
+  },
+
+  // 点击预览图片
+  preImg(e:any){
+    let index = e.currentTarget.dataset.index
+    let urls = this.data.detail.pics
+    wx.previewImage({
+      urls,
+      current:urls[index]
     })
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad() {
-
+  navBlack(){
+    wx.navigateBack()
   },
 
   /**

@@ -6,7 +6,10 @@
     "pages/search/search",
     "pages/dev/dev",
     "pages/others/others",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/going/going",
+    "pages/detail/detail",
+    "pages/store/store"
   ],
   "window":{
     "backgroundTextStyle":"light",

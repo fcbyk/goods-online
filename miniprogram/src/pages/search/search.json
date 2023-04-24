@@ -1,6 +1,11 @@
 {
   "navigationBarBackgroundColor": "#2A82E4",
+  "navigationBarTextStyle": "white",
   "usingComponents": {
-    "van-search": "@vant/weapp/search/index"
+    "van-search": "@vant/weapp/search/index",
+    "van-tag": "@vant/weapp/tag/index",
+    "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
+    "van-dropdown-item": "@vant/weapp/dropdown-item/index",
+    "van-empty": "@vant/weapp/empty/index"
   }
 }

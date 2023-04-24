@@ -12,6 +12,7 @@ Page({
   },
 
   popup(){
+    // wx.hideTabBar({})
     this.setData({
       show:true
     })
@@ -63,5 +64,6 @@ Page({
     this.setData({
       show:false
     })
+    // wx.showTabBar({})
   }
 })
