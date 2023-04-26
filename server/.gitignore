@@ -33,4 +33,5 @@ build/
 .vscode/
 
 application.yml
-8574894_ali.fcbyk.com.pfx
+src/main/resources/8574894_ali.fcbyk.com.pfx
+ali.fcbyk.com.pfx

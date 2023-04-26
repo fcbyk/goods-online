@@ -25,11 +25,11 @@ public class UserController {
     private UserMapper userMapper;
 
     // 微信授权登录
-    @GetMapping("/wxlogin/{jscode}")
-    public Result<Object> wxLogin(@PathVariable String jscode){
+    @PostMapping
+    public Result<Object> wxLogin(@RequestBody Map<String,String> reqBody){
 
         // 根据jscode请求openId,如未取得openid，返回错误信息
-        Code2SessionDto code2Session = loginRequestUtil.getCode2Session(jscode);
+        Code2SessionDto code2Session = loginRequestUtil.getCode2Session(reqBody.get("jscode"));
         String openId = code2Session.getOpenid();
         if (openId == null){
             return Result.error(code2Session.getErrmsg());
