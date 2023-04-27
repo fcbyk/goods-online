@@ -40,14 +40,5 @@ export default [
       name:"店主认证",
       url:"../dev/dev"
     }
-  ],
-
-  // 其他
-  [
-    {
-      icon:"ellipsis",
-      name:"更多",
-      url:"../others/others"
-    },
   ]
 ]

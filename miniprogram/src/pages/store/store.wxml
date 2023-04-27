@@ -3,13 +3,13 @@
     <van-icon name="shop-o" />
   </view>
   <view class="top-info">
-    <view>爱心超市</view>
+    <view>{{store.name}}</view>
     <view><van-icon name="location-o" /><text>海南省三亚市吉阳区育才路1号</text></view>
     <view><text>2个商品 </text><text> 0人订阅</text></view>
   </view>
   <view class="top-btn">
     <van-tag color="#2A82E4" plain size="large">+ 订阅</van-tag>
-    <van-tag color="#2A82E4" plain size="large">到店</van-tag>
+    <van-tag color="#2A82E4" plain size="large" bindtap="goto">到店</van-tag>
   </view>
 </view>
 

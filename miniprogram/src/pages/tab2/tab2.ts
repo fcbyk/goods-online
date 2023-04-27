@@ -1,26 +1,36 @@
+import { request } from "../../utils/request"
+
 Page({
 
   data: {
     isLogin:false,
-    wish:[],
+    golist:[{
+      id:"",
+      location:{
+        address: "海南省三亚市吉阳区育才路1号",
+        latitude: 18.315919,
+        longitude: 109.532613,
+        name: "爱心超市",
+      }
+    }],
     sum:0
   },
 
   onShow() {
-    let wish = wx.getStorageSync("wish")
-    if(wish){
+    let golist = wx.getStorageSync("golist")
+    if(golist){
       this.setSum()
     }
     this.setData({
       isLogin:wx.getStorageSync("identity"),
-      wish,
+      golist,
     })
   },
 
   setSum(){
-    let wish = wx.getStorageSync("wish")
+    let golist = wx.getStorageSync("golist")
     let sum = 0
-    wish.forEach((element:any) => {
+    golist.forEach((element:any) => {
       sum = sum + element.price
     });
     this.setData({sum})
@@ -33,22 +43,42 @@ Page({
   },
 
   swipeCell(event:any) {
+    let index = event.currentTarget.dataset.index
+    let golist = this.data.golist
     if(event.detail == "right"){
-      let wish = this.data.wish
-      wish.splice(event.currentTarget.dataset.index,1)
-      wx.setStorageSync('wish', wish)
-      this.setSum()
-      this.setData({wish})
+      request({
+        url:"/user",
+        method:"PUT",
+        data:{
+          clas:"golist",
+          data:{
+            method:"delete",
+            value:golist[index].id
+          }
+        }
+      }).then((res:any)=>{
+        if(res.data.data == true){
+          golist.splice(index,1)
+          wx.setStorageSync('golist', golist)
+          this.setSum()
+          this.setData({golist})
+        }else{
+          wx.showToast({
+            icon:"error",
+            title:"服务器未知异常"
+          })
+        }
+      })
     }
     
     if(event.detail == "left"){
-        console.log(event.currentTarget.dataset.index)
+        let location = this.data.golist[event.currentTarget.dataset.index].location
         wx.openLocation({
-          address: "海南省三亚市吉阳区育才路1号",
-          latitude: 18.315919,
-          longitude: 109.532613,
-          name: "爱心超市",
+          address: location.address,
+          latitude: location.latitude,
+          longitude: location.longitude,
+          name: location.name,
         })
     }
-  },
+  }
 })

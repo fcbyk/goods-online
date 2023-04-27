@@ -19,19 +19,23 @@
   </view>
 </navigator>
 
-<view class="collect">
-  <navigator class="col-item" wx:for="{{tab3collect}}" wx:key="index" url="{{item.url}}" open-type="navigate">
+<view class="collect" bindtap="logoutToast">
+  <navigator class="col-item" wx:for="{{tab3collect}}" wx:key="index" url="{{isLogin?item.url:'.'}}" open-type="navigate">
     <van-icon name="{{item.icon}}" size="30px"/>
     <text>{{item.name}}</text>
   </navigator>
 </view>
 
 <view wx:for="{{tab3cell}}" wx:key="index" wx:for-item="cell">
-  <van-cell-group wx:for="{{cell}}" wx:key="index">
-    <van-cell title="{{item.name}}" is-link icon="{{item.icon}}" url="{{item.url}}" size="large" />
+  <van-cell-group wx:for="{{cell}}" wx:key="index" bindtap="logoutToast">
+    <van-cell title="{{item.name}}" is-link icon="{{item.icon}}" url="{{isLogin?item.url:''}}" size="large"/>
   </van-cell-group>
   <view style="height: 30rpx;"></view>
 </view>
+
+<van-cell-group>
+  <van-cell title="更多" is-link  url="../others/others" size="large" icon="ellipsis"/>
+</van-cell-group>
 
 <van-popup
   show="{{ show }}"
@@ -47,3 +51,5 @@
   </view>
 </view>
 </van-popup>
+
+<van-toast id="van-toast" />

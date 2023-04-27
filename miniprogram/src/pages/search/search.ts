@@ -21,7 +21,8 @@ Page({
     option1,
     option2,
     value1:0,
-    value2:'a'
+    value2:'a',
+    storeList:null
   },
 
   // 根据关键词搜索
@@ -29,15 +30,38 @@ Page({
     this.setData({
       searchValue:event.detail
     })
-    request({
-      url: '/goods/search/'+ event.detail,
-      method: 'GET'
-    }).then((res:any)=>{
-      this.setData({
-        goodsList:res.data.data
-      })
-    })
+    this.searchRequest(event.detail)
   },
+
+  // 选项变时,触发搜索
+  onSwitch1Change(){
+    this.searchRequest(this.data.searchValue)
+  },
+
+  searchRequest(key:string){
+    if(this.data.value1==0){
+      request({
+        url: '/goods/search/'+ key,
+        method: 'GET'
+      }).then((res:any)=>{
+        this.setData({
+          storeList:null,
+          goodsList:res.data.data
+        })
+      })
+    }else{
+      request({
+        url: '/store/search/'+ key,
+        method: 'GET'
+      }).then((res:any)=>{
+        this.setData({
+          goodsList:null,
+          storeList:res.data.data
+        })
+      })
+    }
+  },
+
 
   /**
    * 生命周期函数--监听页面加载

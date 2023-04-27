@@ -10,6 +10,7 @@ interface RequestOption{
 export const request = (obj:RequestOption) => {
   // 定义一个公共的url
   const baseUrl = "https://mock.apifox.cn/m1/2496703-0-default"
+  // const baseUrl = "http://localhost"
   return new Promise((resolve, reject) => {
       // 开启loading
       wx.showLoading({
@@ -30,6 +31,10 @@ export const request = (obj:RequestOption) => {
               reject(err)
               // 关闭loading
               wx.hideLoading()
+              wx.showToast({
+                icon:"error",
+                title:"服务器连接异常"
+              })
           }
       })
   })

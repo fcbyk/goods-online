@@ -3,7 +3,7 @@
   "projectname": "miniprogram",
   "setting": {
     "compileHotReLoad": true,
-    "urlCheck": true,
+    "urlCheck": false,
     "coverView": true,
     "lazyloadPlaceholderEnable": false,
     "preloadBackgroundData": false,
@@ -14,18 +14,6 @@
     "showShadowRootInWxmlPanel": true,
     "showES6CompileOption": false
   },
-  "condition": {
-    "miniprogram": {
-      "list": [
-        {
-          "name": "",
-          "pathName": "pages/store/store",
-          "query": "sid=s0001",
-          "launchMode": "default",
-          "scene": null
-        }
-      ]
-    }
-  },
+  "condition": {},
   "libVersion": "2.31.0"
 }

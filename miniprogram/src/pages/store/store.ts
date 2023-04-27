@@ -1,13 +1,38 @@
+import { request } from "../../utils/request"
 
 Page({
 
   data: {
-    sid:""
+    sid:"",
+    store:{
+      address: "",
+      latitude: 18.315919,
+      longitude: 109.532613,
+      name: "",
+    }
   },
 
   onLoad(options:any) {
     this.setData({
-      sid:options.sid
+      sid:options.store
+    })
+    request({
+      url: '/store/detail/'+ options.store,
+      method: 'GET'
+    }).then((res:any)=>{
+      this.setData({
+        store:res.data.data
+      })
+    })
+  },
+
+  goto(){
+    let store = this.data.store
+    wx.openLocation({
+      address: store.address,
+      latitude: store.latitude,
+      longitude: store.longitude,
+      name: store.name,
     })
   },
 

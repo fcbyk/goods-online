@@ -1,6 +1,7 @@
 import tab3collect from "../../data/tab3collect"
 import tab3cell from "../../data/tab3cell"
 import { request } from "../../utils/request"
+import Toast from "../../miniprogram_npm/@vant/weapp/toast/toast"
 
 Page({
   data: {
@@ -12,7 +13,6 @@ Page({
   },
 
   popup(){
-    // wx.hideTabBar({})
     this.setData({
       show:true
     })
@@ -24,26 +24,32 @@ Page({
       timeout:5000,
       success:(loginRes)=>{
         request({
-          url:"/user/login",
+          url:"/user",
           method:"POST",
-          data:loginRes.code
+          data:{
+            jscode:loginRes.code
+          }
         }).then((res:any)=>{
           wx.setStorageSync("identity",res.data.data)
           this.setUserInfo()
-          this.getWish()
+          this.getList("golist")
+          this.getList("star-g")
+          this.getList("star-s")
+          this.onClose()
+        },()=>{
           this.onClose()
         })
       }
     })
   },
 
-  // 获取用户想买的商品列表
-  getWish(){
+  // 获取用户<去买>，<收藏>
+  getList(clas:"golist"|"star-g"|"star-s"){
     request({
-      url:"/wish",
+      url:"/user/"+clas,
       method:"GET",
     }).then((res:any)=>{
-      wx.setStorageSync("wish",res.data.data)
+      wx.setStorageSync(clas,res.data.data)
     })
   },
 
@@ -65,5 +71,15 @@ Page({
       show:false
     })
     // wx.showTabBar({})
+  },
+
+  logoutToast(){
+    if(!this.data.isLogin){
+      Toast({
+        message:'未登录',
+        type:'fail',
+        duration:1000
+      })
+    }
   }
 })

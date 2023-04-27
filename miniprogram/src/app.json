@@ -9,7 +9,9 @@
     "pages/user/user",
     "pages/going/going",
     "pages/detail/detail",
-    "pages/store/store"
+    "pages/store/store",
+    "pages/star-g/star-g",
+    "pages/star-s/star-s"
   ],
   "window":{
     "backgroundTextStyle":"light",

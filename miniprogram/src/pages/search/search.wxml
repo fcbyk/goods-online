@@ -10,13 +10,13 @@
   />
 </view>
 
-<van-dropdown-menu active-color="#2A82E4" wx:if="{{goodsList.length>0}}">
-    <van-dropdown-item value="{{ value1 }}" options="{{ option1 }}" />
+<van-dropdown-menu active-color="#2A82E4" wx:if="{{goodsList.length >= 0 || storeList.length >= 0}}">
+    <van-dropdown-item model:value="{{ value1 }}" options="{{ option1 }}"       bind:change="onSwitch1Change"/>
     <van-dropdown-item value="{{ value2 }}" options="{{ option2 }}" />
 </van-dropdown-menu>
 
 <!-- 搜索提示 -->
-<van-empty image="search" description="未找到{{searchValue}}相关的商品" wx:if="{{goodsList.length==0}}"/>
+<van-empty image="search" description="未找到{{searchValue}}相关的{{goodsList.length==0?'商品':'店铺'}}" wx:if="{{goodsList.length == 0 || storeList.length == 0}}"/>
 
 <view class="goodsList" >
     <navigator class="goodsbox" wx:for="{{goodsList}}" wx:key="index" url="../detail/detail?gid={{item.gid}}">
@@ -28,5 +28,20 @@
         <van-tag color="#10872A" text-color="#ffffff" round size="medium">该信息由开发者提供</van-tag>
       </view>
     </navigator>
+</view>
+
+<view class="storeList" >
+
+  <navigator class="storebox" url="../store/store?store={{item.sid}}" wx:for="{{storeList}}" wx:key="index">
+      <view class="storebox-icon">
+        <van-icon name="shop-o" />
+      </view>
+    <view class="storebox-info">
+      <view>{{item.name}}</view>
+      <view><van-icon name="location-o" /><text>{{item.address}}</text></view>
+      <view><text>2个商品 </text><text> 0人订阅</text></view>
+    </view>
+  </navigator>
+
 </view>
 
