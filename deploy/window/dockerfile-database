@@ -1,6 +1,10 @@
 FROM mysql:8.0
 
+# 复制MySQL配置文件
 COPY ./database/my.cnf /etc/mysql/my.cnf
+
+# 复制sql脚本
 COPY ./database/init.sql /docker-entrypoint-initdb.d/
 
+# 赋予sql脚本的执行权限
 RUN chmod a+x /docker-entrypoint-initdb.d/init.sql

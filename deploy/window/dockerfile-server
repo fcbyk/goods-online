@@ -1,0 +1,10 @@
+FROM openjdk:17
+
+WORKDIR /app
+
+# 拷贝jar包
+COPY ./server/target/goods-online-1.0.0.jar /app
+
+EXPOSE 80
+
+CMD [ "java","-jar","goods-online-1.0.0.jar","--server.port=80"]

@@ -2,7 +2,8 @@ FROM openjdk:17
 
 WORKDIR /app
 
-COPY . .
+# 拷贝jar包
+COPY ./goods-online-1.0.0.jar /app
 
 EXPOSE 443
 

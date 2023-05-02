@@ -7,3 +7,12 @@
 
 [UI设计稿](https://js.design/f/-O0fJs?p=NjuH8Hiwv5)
 
+
+#### 目录结构
+
+```
+- database 数据库
+- deploy 部署
+- miniprogram 微信小程序代码
+- server 服务器端代码
+```

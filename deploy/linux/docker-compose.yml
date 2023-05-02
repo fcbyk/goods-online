@@ -1,0 +1,37 @@
+version: "3"
+
+services:
+
+# 数据库
+  gl-db:
+    container_name: gl-db
+    build: 
+      context: .
+      dockerfile: dockerfile-database
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    volumes:
+      - type: bind
+        source: /usr/volumes/mysql/conf
+        target: /etc/mysql/conf.d
+      - type: bind
+        source: /usr/volumes/mysql/logs
+        target: /logs
+      - type: bind
+        source: /usr/volumes/mysql/data
+        target: /var/lib/mysql
+
+# web服务器
+  gl-server:
+    container_name: gl-server
+    build: 
+      context: .
+      dockerfile: dockerfile-server
+    ports:
+      - "443:443"
+    volumes:
+      - type: bind
+        source: /usr/volumes/gl-server/img
+        target: /img
