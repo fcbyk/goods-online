@@ -12,6 +12,6 @@ export default [
   {
     icon:"underway-o",
     name:"足迹",
-    url:"../dev/dev"
+    url:"../store-s-list/store-s-list"
   }
 ]

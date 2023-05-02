@@ -1,0 +1,52 @@
+<!--pages/c-store/c-store.wxml-->
+<van-notice-bar
+  color="#1989fa"
+  background="#ecf9ff"
+  left-icon="info-o"
+  text="请不要发布虚假信息"
+/>
+
+<van-cell-group>
+  <van-field
+    value="{{ username }}"
+    required
+    clearable
+    label="店铺名称"
+    icon="question-o"
+    placeholder="请输入店铺名称"
+    bind:click-icon="onClickIcon"
+  />
+
+  <van-field
+    value="{{ password }}"
+    type="password"
+    label="店铺类型"
+    placeholder="请填写店铺类型"
+    required
+  />
+</van-cell-group>
+
+<van-cell-group>
+  <van-field
+    value="{{ sms }}"
+    center
+    clearable
+    label="位置"
+    use-button-slot
+    required
+  >
+    <van-button slot="button" size="small" type="primary">
+      选择位置
+    </van-button>
+  </van-field>
+</van-cell-group>
+
+<van-cell-group>
+  <van-field
+    value="{{ message }}"
+    label="备注"
+    type="textarea"
+    placeholder="您可以在这里可以补充一些说明信息"
+    autosize
+  />
+</van-cell-group>

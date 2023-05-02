@@ -32,14 +32,14 @@
 
 <view class="storeList" >
 
-  <navigator class="storebox" url="../store/store?store={{item.sid}}" wx:for="{{storeList}}" wx:key="index">
+  <navigator class="storebox" url="../store/store?store={{item.id}}" wx:for="{{storeList}}" wx:key="index">
       <view class="storebox-icon">
         <van-icon name="shop-o" />
       </view>
     <view class="storebox-info">
       <view>{{item.name}}</view>
-      <view><van-icon name="location-o" /><text>{{item.address}}</text></view>
-      <view><text>2个商品 </text><text> 0人订阅</text></view>
+      <view><van-icon name="location-o" /><text>{{item.location.address}}</text></view>
+      <view><text>{{item.goods_number}}个商品 </text><text> {{item.followers}}人订阅</text></view>
     </view>
   </navigator>
 

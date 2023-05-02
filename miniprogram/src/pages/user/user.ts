@@ -72,7 +72,7 @@ Page({
             }else{
               wx.showToast({
                 icon:"error",
-                title:"服务器连接异常"
+                title:"服务器异常1"
               })
             }
             resolve(res)
@@ -81,7 +81,7 @@ Page({
             reject(err)
             wx.showToast({
               icon:"error",
-              title:"服务器连接异常"
+              title:"服务器异常2"
             })
           }
         })

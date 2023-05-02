@@ -1,9 +1,9 @@
 {
-  "pages":[
+  "pages": [
     "pages/tab1/tab1",
     "pages/tab2/tab2",
     "pages/tab3/tab3",
-    "pages/search/search",
+    "pages/tab1/search/search",
     "pages/dev/dev",
     "pages/others/others",
     "pages/user/user",
@@ -11,12 +11,17 @@
     "pages/detail/detail",
     "pages/store/store",
     "pages/star-g/star-g",
-    "pages/star-s/star-s"
+    "pages/star-s/star-s",
+    "pages/boss/boss",
+    "pages/c-store/c-store",
+    "pages/c-goods/c-goods",
+    "pages/store-s-list/store-s-list",
+    "pages/box/box"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#FAFAFA",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#737373",
@@ -30,16 +35,16 @@
         "selectedIconPath": "./assets/icon/tab1-active.png"
       },
       {
-          "pagePath": "pages/tab2/tab2",
-          "text": "去买",
-          "iconPath": "./assets/icon/tab2.png",
-          "selectedIconPath": "./assets/icon/tab2-active.png"
+        "pagePath": "pages/tab2/tab2",
+        "text": "去买",
+        "iconPath": "./assets/icon/tab2.png",
+        "selectedIconPath": "./assets/icon/tab2-active.png"
       },
       {
-          "pagePath": "pages/tab3/tab3",
-          "text": "个人",
-          "iconPath": "./assets/icon/tab3.png",
-          "selectedIconPath": "./assets/icon/tab3-active.png"
+        "pagePath": "pages/tab3/tab3",
+        "text": "个人",
+        "iconPath": "./assets/icon/tab3.png",
+        "selectedIconPath": "./assets/icon/tab3-active.png"
       }
     ]
   },
@@ -52,4 +57,4 @@
     "van-cell-group": "@vant/weapp/cell-group/index",
     "van-field": "@vant/weapp/field/index"
   }
-} 
+}

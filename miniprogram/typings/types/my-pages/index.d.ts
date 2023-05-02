@@ -1,0 +1,1 @@
+/// <reference path="./tab1.d.ts" />

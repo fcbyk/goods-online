@@ -13,9 +13,29 @@
   </view>
 </view>
 
-<van-tabs active="{{ active }}" bind:change="onChange">
-  <van-tab title="首页"><van-empty description="首页内容为空" /></van-tab>
-  <van-tab title="全部商品"><van-empty description="还没写" /></van-tab>
-  <van-tab title="分类"><van-empty description="分类页还没写" /></van-tab>
-  <van-tab title="店铺简介"><van-empty description="还没写" /></van-tab>
+<van-tabs active="{{ active }}">
+  <!-- <van-tab title="首页"><van-empty description="首页内容为空" /></van-tab> -->
+  <van-tab title="全部商品">
+
+        <view class="goodsList" >
+        <navigator class="goodsbox" wx:for="{{goodsList}}" wx:key="index" url="../detail/detail?gid={{item.gid}}">
+          <image src="{{item.image}}" mode="heightFix"></image>
+          <view class="goodsdes">
+            <text>{{item.name}}</text>
+            <text>￥{{item.price}}</text>
+            <van-tag color="#10872A" text-color="#ffffff" round size="medium">该信息由开发者提供</van-tag>
+          </view>
+            </navigator>
+        </view>
+
+  </van-tab>
+  <!-- <van-tab title="分类"><van-empty description="分类页还没写" /></van-tab> -->
+  <van-tab title="店铺简介">
+    <view class="hello">
+      <text>商店发布者：开发者</text>
+      <text>发布者留言：黑超</text>
+      <text>店铺发布时间：2023.4.20 10:20</text>
+      <text>最后修改时间：2023.4.20 10:20</text>
+    </view>
+  </van-tab>
 </van-tabs>

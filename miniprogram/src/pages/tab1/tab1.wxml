@@ -3,7 +3,7 @@
 </view>
 
 <view class="search">
-    <navigator url="../search/search" open-type="navigate">
+    <navigator url="./search/search" open-type="navigate">
       <view class="btn"><van-icon name="search" /> 请输入搜索关键词</view>
     </navigator>
 </view>

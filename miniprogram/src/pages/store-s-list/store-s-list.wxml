@@ -1,0 +1,23 @@
+<view style="width: 100vw;">
+
+  <van-search
+  value="{{ value }}"
+  placeholder="请输入搜索关键词"
+/>
+
+</view>
+
+<view class="box1">
+
+<view class="box2">
+  <text class="txt1">爱心超市</text>
+  <view style="height: 10rpx;"></view>
+  <view><van-icon name="location-o" /><text>海南省三亚市吉阳区育才路1号</text></view>
+</view>
+
+<view class="hhhh">
+选择
+</view>
+
+</view>
+

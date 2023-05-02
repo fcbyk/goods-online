@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "想去买的商品",
+  "navigationBarTitleText": "待去买的商品",
   "usingComponents": {
     "van-empty": "@vant/weapp/empty/index",
     "van-button": "@vant/weapp/button/index",

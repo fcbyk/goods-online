@@ -1,4 +1,4 @@
-import { request } from "../../utils/request"
+import { request } from "../../../utils/request"
 
 const option1 = [
   { text: '商品', value: 0 },

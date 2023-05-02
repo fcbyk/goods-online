@@ -4,12 +4,15 @@
   </swiper-item>
 </swiper>
 
-<view class="box">
-  <view>￥<text>{{detail.price}}</text></view>
+
+
+<view class="hello2">
+  <view class="box">
+  <view class="hello">￥<text>{{detail.price}}</text></view>
   <text>{{detail.name}}</text>
 </view>
 
-<van-divider />
+  <van-divider/>
 <view class="box">
   <text>商品发布者：开发者</text>
   <text>发布者留言：这是测试数据</text>
@@ -25,11 +28,15 @@
 </view>
 
 <van-divider />
-<view class="box comment">
+<!-- <view class="box comment">
   <text>评论</text>
   <van-empty description="暂不支持评论" />
-</view>
+</view> -->
 <view style="height: 10vh"></view>
+
+
+</view>
+
 
 <van-goods-action>
   <van-goods-action-icon icon="arrow-left" text="返回" bind:click="navBlack"/>

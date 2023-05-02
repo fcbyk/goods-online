@@ -1,0 +1,60 @@
+<van-notice-bar
+  color="#1989fa"
+  background="#ecf9ff"
+  left-icon="info-o"
+  text="请不要发布虚假信息"
+/>
+
+<van-divider contentPosition="left" customStyle="color: #1989fa; border-color: #1989fa;">商品图片</van-divider>
+
+<van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" deletable="{{ true }}"/>
+
+<van-notice-bar
+  color="#393939b6"
+  background="#e1e1e1b6"
+  text="最多上传6张图片，第一张图将用作商品主图"
+/>
+
+<van-cell-group>
+  <van-field
+    value="{{ username }}"
+    required
+    clearable
+    label="商品名称"
+    icon="question-o"
+    placeholder="请输入商品名称"
+    bind:click-icon="onClickIcon"
+  />
+
+  <van-field
+    value="{{ password }}"
+    label="价格"
+    placeholder="请填写价格"
+    required
+  />
+</van-cell-group>
+
+<van-cell-group>
+  <van-field
+    value="{{ sms }}"
+    center
+    clearable
+    label="所属店铺"
+    use-button-slot
+    required
+  >
+    <van-button slot="button" size="small" type="primary">
+      选择店铺
+    </van-button>
+  </van-field>
+</van-cell-group>
+
+<van-cell-group>
+  <van-field
+    value="{{ message }}"
+    label="备注"
+    type="textarea"
+    placeholder="您可以在这里可以补充一些说明信息"
+    autosize
+  />
+</van-cell-group>
