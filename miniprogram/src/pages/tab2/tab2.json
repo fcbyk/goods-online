@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "待去买的商品",
-  "usingComponents": {
-    "van-empty": "@vant/weapp/empty/index",
-    "van-button": "@vant/weapp/button/index",
-    "van-swipe-cell": "@vant/weapp/swipe-cell/index"
-  }
-}

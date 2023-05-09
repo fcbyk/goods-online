@@ -1,8 +1,0 @@
-<van-tabs active="{{ active }}" bind:change="onChange">
-  <van-tab title="店铺">内容 1</van-tab>
-  <van-tab title="商品">
-    <view style="height: 10rpx;"></view>
-    <van-cell center title="东鹏特饮" value="审核中" label="创建时间 2022-4-27 10:56" />
-    </van-tab>
-</van-tabs>
-

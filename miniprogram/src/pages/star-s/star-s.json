@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "校园店铺",
-  "usingComponents": {
-    "van-swipe-cell": "@vant/weapp/swipe-cell/index"
-  }
-}

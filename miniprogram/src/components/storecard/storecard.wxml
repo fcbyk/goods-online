@@ -1,0 +1,11 @@
+<navigator class="storebox" url="../storedetail/storedetail?storeId={{store.id}}">
+    <view class="storebox-icon">
+      <van-icon name="shop-o" />
+    </view>
+  <view class="storebox-info">
+    <view>{{store.name}}</view>
+    <view><van-icon name="location-o" /><text>{{store.location.address}}</text></view>
+    <view><text>{{store.goodsNumber}}个商品 </text><text> {{store.followers}}人订阅</text></view>
+  </view>
+</navigator>
+

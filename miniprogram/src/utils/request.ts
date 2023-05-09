@@ -1,41 +1,67 @@
-interface RequestOption{
-    /** 请求接口 */
-    url: string
-    /** 请求方法 */
-    method?: 'GET' | 'POST' | 'PUT' | 'DELETE'
-    /** 请求的参数 */
-    data?: any
+// 请求的服务器
+// const FCBYK:string = "https://ali.fcbyk.com"
+const APIFOX:string = "https://mock.apifox.cn/m1/2496703-0-default"
+// const LOCALHOST:string = "http://localhost"
+
+// 错误提示
+const errMsg = (msg:string):void=>{
+  wx.showToast({icon:"error", title:msg})
 }
 
-export const request = (obj:RequestOption) => {
-  // 定义一个公共的url
-  const baseUrl = "https://mock.apifox.cn/m1/2496703-0-default"
-  // const baseUrl = "http://localhost"
+// 二次封装请求方法
+export const request:Request = (requestOption:RequestOption) => {
+
+  const baseUrl = APIFOX
+
   return new Promise((resolve, reject) => {
-      // 开启loading
-      wx.showLoading({
-          title: '努力加载中...',
-      })
+      wx.showLoading({title: '努力加载中...'})
       wx.request({
-          ...obj,
-          header: {
-            'Identity': wx.getStorageSync("identity").userid
-          },
-          url: baseUrl + obj.url,
+
+          // 请求配置
+          ...requestOption,
+          header: {'Identity': wx.getStorageSync("identity").userid},
+          url: baseUrl + requestOption.url,
+          timeout:5000,
+
+          // 成功的回调
           success: (res) => {
-              resolve(res)
-              // 关闭loading
+              resolve(res.data)
               wx.hideLoading()
+
+              // 404 提示
+              if(res.statusCode == 404) errMsg("404没找到")
           },
+
+          // 失败的回调
           fail: (err) => {
               reject(err)
-              // 关闭loading
               wx.hideLoading()
-              wx.showToast({
-                icon:"error",
-                title:"服务器连接异常"
-              })
+              errMsg("服务器异常")
           }
       })
+  })
+}
+
+export const uploadFile:UploadFile = (filePath:string,where:"/avatar"|"/goods") => {
+  return new Promise((resolve, reject)=>{
+
+    wx.uploadFile({
+      url:"https://ali.fcbyk.com/file/upload",
+      filePath,
+      name:"file",
+      header:{
+        Path: where
+      },
+
+      success: (res:any) =>{
+        resolve(res)
+        if(res.statusCode == 404) errMsg("404没找到")
+      },
+      
+      fail:(err)=>{
+        reject(err)
+        errMsg("服务器异常")
+      }
+    })
   })
 }

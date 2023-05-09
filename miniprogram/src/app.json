@@ -1,22 +1,18 @@
 {
   "pages": [
-    "pages/tab1/tab1",
-    "pages/tab2/tab2",
-    "pages/tab3/tab3",
-    "pages/tab1/search/search",
-    "pages/dev/dev",
-    "pages/others/others",
-    "pages/user/user",
-    "pages/going/going",
-    "pages/detail/detail",
-    "pages/store/store",
-    "pages/star-g/star-g",
-    "pages/star-s/star-s",
-    "pages/boss/boss",
-    "pages/c-store/c-store",
-    "pages/c-goods/c-goods",
-    "pages/store-s-list/store-s-list",
-    "pages/box/box"
+    "pages/home/index/index",
+    "pages/home/clas/clas",
+    "pages/home/search/search",
+    "pages/home/goodsdetail/goodsdetail",
+    "pages/home/storedetail/storedetail",
+
+    "pages/golist/index/index",
+
+    "pages/user/index/index",
+    "pages/user/info/info",
+    "pages/user/more/more",
+    "pages/user/releasegoods/releasegoods",
+    "pages/user/releasestore/releasestore"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -29,19 +25,19 @@
     "backgroundColor": "#ffffff",
     "list": [
       {
-        "pagePath": "pages/tab1/tab1",
+        "pagePath": "pages/home/index/index",
         "text": "逛逛",
         "iconPath": "./assets/icon/tab1.png",
         "selectedIconPath": "./assets/icon/tab1-active.png"
       },
       {
-        "pagePath": "pages/tab2/tab2",
+        "pagePath": "pages/golist/index/index",
         "text": "去买",
         "iconPath": "./assets/icon/tab2.png",
         "selectedIconPath": "./assets/icon/tab2-active.png"
       },
       {
-        "pagePath": "pages/tab3/tab3",
+        "pagePath": "pages/user/index/index",
         "text": "个人",
         "iconPath": "./assets/icon/tab3.png",
         "selectedIconPath": "./assets/icon/tab3-active.png"
@@ -55,6 +51,20 @@
     "van-toast": "@vant/weapp/toast/index",
     "van-cell": "@vant/weapp/cell/index",
     "van-cell-group": "@vant/weapp/cell-group/index",
-    "van-field": "@vant/weapp/field/index"
+    "van-field": "@vant/weapp/field/index",
+    "van-search": "@vant/weapp/search/index",
+    "van-tag": "@vant/weapp/tag/index",
+    "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
+    "van-dropdown-item": "@vant/weapp/dropdown-item/index",
+    "van-goods-action": "@vant/weapp/goods-action/index",
+    "van-goods-action-icon": "@vant/weapp/goods-action-icon/index",
+    "van-goods-action-button": "@vant/weapp/goods-action-button/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "van-empty": "@vant/weapp/empty/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-swipe-cell": "@vant/weapp/swipe-cell/index",
+    "van-popup": "@vant/weapp/popup/index"
   }
 }

@@ -1,0 +1,9 @@
+<navigator class="goodsbox" url="../goodsdetail/goodsdetail?goodsId={{goods.gid}}">
+      <image src="{{goods.image}}"></image>
+      <view class="goodsdes">
+        <text>{{goods.name}}</text>
+        <text>￥{{goods.price}}</text>
+        <van-tag color="#F7F7F7" text-color="#000000" round size="medium">{{goods.store}}   进店></van-tag>
+        <van-tag color="#10872A" text-color="#ffffff" round size="medium">该信息由开发者提供</van-tag>
+      </view>
+</navigator>

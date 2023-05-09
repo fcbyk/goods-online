@@ -1,0 +1,34 @@
+<!-- 第一部分，搜索框 -->
+<view id="search">
+  <van-search
+    shape="round"
+    placeholder="请输入搜索关键词"
+    background="#2A82E4"
+    focus="{{searchIsfocus}}"
+    field-class="customclass"
+    bind:search="onSearch"
+  />
+</view>
+
+<!-- 第二部分，搜索选项 -->
+<van-dropdown-menu active-color="#2A82E4" wx:if="{{goodsList.length >= 0 || storeList.length >= 0}}">
+    <van-dropdown-item model:value="{{ClasOptionValue}}" options="{{searchClasOption}}"  bind:change="onSearch"/>
+    <van-dropdown-item model:value="{{SortOptionValue}}" options="{{searchSortOption}}"  
+    bind:change="onSearch"/>
+</van-dropdown-menu>
+
+<!-- 第三部分，搜索为空 -->
+<van-empty image="search" description="未找到{{searchValue}}相关的{{goodsList.length==0?'商品':'店铺'}}" wx:if="{{goodsList.length == 0 || storeList.length == 0}}"/>
+
+<!-- 第三部分，搜索商品 -->
+<view class="goodsList" >
+  <goods-box wx:for="{{goodsList}}" wx:key="index" goods="{{item}}"></goods-box>
+</view>
+
+<!-- 第三部分，搜索店铺 -->
+<view wx:if="{{storeList.length>0}}">
+  <storecard  wx:for="{{storeList}}" store="{{item}}" wx:key="index"></storecard>
+</view>
+
+<!-- 错误提示框 -->
+<van-toast id="van-toast" />

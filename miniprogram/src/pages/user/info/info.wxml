@@ -1,0 +1,29 @@
+<view style="height: 10rpx;"></view>
+
+<!-- 头像部分 -->
+<button open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar" class="avatar-btn">
+  <view>头像</view>
+  <image class="avatar" src="{{avatarUrl}}" mode="heightFix"></image>
+</button> 
+
+<!-- 昵称部分 -->
+<van-cell-group>
+  <van-field
+    label="昵称"
+    model:value="{{ nickname }}"
+    placeholder="请输入昵称"
+    type="nickname"
+    custom-style="height:100rpx"
+  />
+</van-cell-group>
+
+<view style="height: 30rpx;"></view>
+
+
+<!-- 按钮部分 -->
+<view class="alterIfon" bindtap="alterIfon">确认修改信息</view>
+
+<view style="height: 30rpx;"></view>
+<van-cell-group>
+  <van-cell title="退出登录" size="large" bind:click="logout"/>
+</van-cell-group>

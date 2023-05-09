@@ -1,0 +1,9 @@
+{
+  "navigationBarBackgroundColor": "#2A82E4",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "搜索",
+  "usingComponents": {
+    "storecard":"/components/storecard/storecard",
+    "goods-box":"/components/goodsbox/goodbox"
+  }
+}

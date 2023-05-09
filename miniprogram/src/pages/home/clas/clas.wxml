@@ -1,0 +1,12 @@
+
+<!-- 不为空遍历 -->
+
+<view storeList="{{storeList}}" wx:if="{{storeList.length>0}}">
+  <storecard store="{{item}}" wx:for="{{storeList}}" wx:key="index"></storecard>
+</view>
+
+<!-- 为空提示 -->
+<view class="empty" wx:else>
+  <text>{{clas}}分类页的相关内容为空</text>
+</view>
+

@@ -1,0 +1,34 @@
+<!-- 第一部分：logo -->
+<view class="logo">
+    <text>线上逛店</text>
+</view>
+
+<!-- 第二部分：搜索框 -->
+<view class="search">
+    <navigator url="../search/search" open-type="navigate">
+      <view class="btn"><van-icon name="search" /> 请输入搜索关键词</view>
+    </navigator>
+</view>
+
+<!-- 第三部分：分类 -->
+<view class="clas">
+  <navigator url="{{item.url}}?clas={{item.name}}" open-type="navigate" wx:for="{{clasList}}" wx:key="index">
+      <image src="{{item.icon}}" mode="widthFix"></image>
+      <text>{{item.name}}</text>
+  </navigator>
+</view>
+
+<!-- 第四部分：校园专区 -->
+<view class="campus">
+      <text>热海大校园专区</text>
+      <navigator class="card" wx:for="{{campusList}}" wx:key="index" url="{{item.url}}?clas={{item.title}}" open-type="navigate">
+        <image src="{{item.icon}}" mode="heightFix"/>
+        <view class="card-right">
+          <text class="title">{{item.title}}</text>
+          <text class="des">{{item.des}}</text>
+        </view>
+      </navigator>
+</view>
+
+<!-- 底部留白 -->
+<view style="height: 50rpx;"></view>

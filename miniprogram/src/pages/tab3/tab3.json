@@ -1,7 +1,0 @@
-{
-  "navigationStyle": "custom",
-  "usingComponents": {
-    "van-popup": "@vant/weapp/popup/index",
-    "van-toast": "@vant/weapp/toast/index"
-  }
-}
