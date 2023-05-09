@@ -7,9 +7,11 @@ import cn.zcoder.gdsonline.entity.User;
 import cn.zcoder.gdsonline.mapper.GoodsMapper;
 import cn.zcoder.gdsonline.mapper.StoreMapper;
 import cn.zcoder.gdsonline.mapper.UserMapper;
+import cn.zcoder.gdsonline.service.StoreService;
 import cn.zcoder.gdsonline.utils.GeneralPrimaryKey;
 import cn.zcoder.gdsonline.utils.GetTime;
 import cn.zcoder.gdsonline.vo.GoodsInfoVO;
+import cn.zcoder.gdsonline.vo.StoreInfoVO;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -37,35 +39,14 @@ class GoodsOnlineApplicationTests {
     @Autowired
     StoreMapper storeMapper;
 
+    @Autowired
+    StoreService storeService;
+
 
     @Test
     void contextLoads() throws IOException {
-        User user = userMapper.selectById("wx12420235004");
-        List<String> starGoods = JSON.parseArray(user.getStarGoods().toString(),String.class);
-        System.out.println(starGoods);
-        starGoods.add("hello");
-        user.setStarGoods(starGoods);
-        System.out.println(user);
+        System.out.println(storeService.getStoreDetail("s0001"));
     }
 
-    @Test
-    void insertTest(){
-
-        Store store = new Store();
-
-        store.setId("s10086");
-        store.setCreateTime(GetTime.now());
-        store.setGoodsNumber(0);
-        store.setFollowers(0);
-        store.setLocation("{}");
-        store.setName("黑超");
-        store.setUpdateTime(GetTime.now());
-        store.setType("测试");
-        store.setCreateUser("hello123");
-
-        storeMapper.insert(store);
-
-
-    }
 
 }

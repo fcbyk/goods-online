@@ -1,9 +1,8 @@
 package cn.zcoder.gdsonline.entity;
 
+import cn.zcoder.gdsonline.utils.GeneralPrimaryKey;
+import cn.zcoder.gdsonline.utils.GetTime;
 import lombok.Data;
-
-import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
 
 @Data
 public class Store {
@@ -19,4 +18,17 @@ public class Store {
     private String status;
     private String type;
     private String updateTime;
+
+    public Store(){}
+
+    public Store(String options){
+        if (options == "init"){
+            this.id = "S"+ GeneralPrimaryKey.getPrimaryKey();
+            this.createTime = GetTime.now();
+            this.updateTime = GetTime.now();
+            this.followers = 0;
+            this.goodsNumber = 0;
+            this.status = "审核中";
+        }
+    }
 }

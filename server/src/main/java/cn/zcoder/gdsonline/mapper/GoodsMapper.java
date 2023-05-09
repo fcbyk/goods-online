@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface GoodsMapper extends BaseMapper<Goods> {
@@ -15,4 +16,7 @@ public interface GoodsMapper extends BaseMapper<Goods> {
             "store.id as storeId,store.name as storeName,store.location as location " +
             "from goods INNER JOIN store ON goods.store = store.id where goods.name like #{key} and goods.status = '已发布'")
     public List<GoodsInfoVO> search(String key);
+
+    @Select("select id,name,imglist as img,price,tag from goods where store = #{sid}")
+    public List<Map<String,Object>> getAllGoodsOfStore(String sid);
 }
