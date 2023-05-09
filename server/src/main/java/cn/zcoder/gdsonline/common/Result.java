@@ -1,9 +1,6 @@
-package cn.zcoder.gdsonline.dto;
+package cn.zcoder.gdsonline.common;
 
 import lombok.Data;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @Data
 public class Result<T> {

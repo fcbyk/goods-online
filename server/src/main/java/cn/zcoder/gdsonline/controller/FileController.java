@@ -1,11 +1,7 @@
 package cn.zcoder.gdsonline.controller;
 
-import cn.zcoder.gdsonline.dto.Result;
-import cn.zcoder.gdsonline.mapper.UserMapper;
 import jakarta.servlet.ServletOutputStream;
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -13,7 +9,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Map;
 import java.util.UUID;
 
 @RestController
@@ -25,10 +20,7 @@ public class FileController {
 
     // 文件上传
     @PostMapping("/upload")
-    public Result<String> upload(MultipartFile file, HttpServletRequest Request) throws IOException {
-
-        // 根据请求头，确定文件存储路径
-        String path = basePath + Request.getHeader("Path");
+    public String upload(MultipartFile file) throws IOException {
 
         // 原始文件名
         String originalFilename = file.getOriginalFilename();
@@ -44,7 +36,7 @@ public class FileController {
         String fileName = UUID.randomUUID().toString()+suffix;
 
         //创建一个目录对象
-        File dir = new File(path);
+        File dir = new File(basePath);
         //判断当前目录是否存在
         if(!dir.exists()){
             //目录不存在
@@ -52,16 +44,16 @@ public class FileController {
         }
 
         //将文件转存到指定位置
-        file.transferTo(new File(path,fileName));
+        file.transferTo(new File(basePath,fileName));
 
-        return Result.success(fileName);
+        return fileName;
     }
 
     // 文件下载
-    @GetMapping("/{clas}/{name}")
-    public void download(@PathVariable String clas,@PathVariable String name, HttpServletResponse response) throws IOException {
+    @GetMapping("/{name}")
+    public void download(@PathVariable String name, HttpServletResponse response) throws IOException {
 
-        File file = new File(clas,name);
+        File file = new File(name);
 
         //输入流，通过输入流读取文件内容
         FileInputStream fileInputStream=new FileInputStream(new File(basePath,file.toString()));

@@ -1,6 +1,6 @@
 package cn.zcoder.gdsonline.exception;
 
-import cn.zcoder.gdsonline.dto.Result;
+import cn.zcoder.gdsonline.common.Result;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
