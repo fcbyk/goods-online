@@ -1,0 +1,45 @@
+spring:
+    profiles:
+        active: dev
+    datasource:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/goods_online?serverTimezone=UTC
+        username: root
+        password: 123456
+    servlet:
+        multipart:
+            max-file-size: 10MB
+            max-request-size: 10MB
+wxmini:
+    appid: 小程序id
+    secret: 小程序密钥
+mybatis-plus:
+    configuration:
+        map-underscore-to-camel-case: true
+
+---
+# 开发环境
+spring:
+    config:
+        activate:
+            on-profile: dev
+server:
+    port: 80
+files-upload:
+  path: D:\img\
+
+---
+# 正式环境
+spring:
+    config:
+        activate:
+            on-profile: pro
+server:
+    port: 443
+    ssl:
+        key-store: classpath:ali.fcbyk.com.pfx
+        key-store-password: ssl证书密码
+        key-store-type: PKCS12
+files-upload:
+  path: /img
