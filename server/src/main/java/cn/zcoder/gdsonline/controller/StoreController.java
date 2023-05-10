@@ -78,6 +78,7 @@ public class StoreController {
         store.setNote(alterStoreDto.getNote());
         store.setLocation(JSON.toJSONString(alterStoreDto.getLocation()));
         store.setUpdateTime(GetTime.now());
+        store.setStatus("审核中");
 
         return Result.success(storeService.updateById(store));
     }

@@ -13,11 +13,14 @@ import java.util.List;
 public interface StoreMapper extends BaseMapper<Store> {
 
     @Select("select * from store where type = #{clas} and status = '已发布'")
-    public List<StoreInfoVO> getClasList(String clas);
+    List<StoreInfoVO> getClasList(String clas);
 
     @Select("select * from store where name like #{key} and status = '已发布'")
-    public List<StoreInfoVO> search(String key);
+    List<StoreInfoVO> search(String key);
 
     @Select("select * from store where id = #{sid}")
-    public StoreDetailVO getStoreDetail(String sid);
+    StoreDetailVO getStoreDetail(String sid);
+
+    @Select("select * from store where id = #{sid}")
+    StoreInfoVO getStoreInfoById(String sid);
 }

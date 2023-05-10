@@ -86,6 +86,7 @@ public class GoodsController {
         return Result.success(goodsService.removeById(gid));
     }
 
+    // 修改商品
     @PutMapping
     public Result<Boolean> alterGoods(@RequestBody AlterGoodsDto alterGoodsDto,HttpServletRequest request){
 
@@ -103,7 +104,10 @@ public class GoodsController {
         goods.setPrice(alterGoodsDto.getPrice());
         goods.setStore(alterGoodsDto.getStore());
         goods.setUpdateTime(GetTime.now());
+        goods.setStatus("审核中");
 
         return Result.success(goodsService.updateById(goods));
     }
+
+    // 修改集合
 }

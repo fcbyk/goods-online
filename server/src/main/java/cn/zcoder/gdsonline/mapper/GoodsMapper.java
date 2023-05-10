@@ -19,4 +19,9 @@ public interface GoodsMapper extends BaseMapper<Goods> {
 
     @Select("select id,name,imglist as img,price,tag from goods where store = #{sid}")
     public List<Map<String,Object>> getAllGoodsOfStore(String sid);
+
+    @Select("select goods.id, goods.name, goods.imglist as img, goods.price,goods.tag," +
+            "store.id as storeId,store.name as storeName,store.location as location " +
+            "from goods INNER JOIN store ON goods.store = store.id where goods.id = #{gid}")
+    public GoodsInfoVO getGoodsInfoById(String gid);
 }
