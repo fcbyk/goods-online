@@ -1,6 +1,6 @@
 <!-- 轮播图 -->
 <swiper indicator-active-color="#2A82E4" indicator-dots autoplay circular>
-  <swiper-item wx:for="{{goodsDetail.slidePics}}" wx:key="index">
+  <swiper-item wx:for="{{goodsDetail.imglist}}" wx:key="index">
       <image src="{{item}}" mode="widthFix" class="s-img" bindtap="preImg" data-index="{{index}}"></image>
   </swiper-item>
 </swiper>
@@ -15,24 +15,20 @@
 <van-divider/>
 
 <view class="box">
-  <text>商品发布者：开发者</text>
-  <text>发布者留言：这是测试数据</text>
-  <text>首次创建时间：2023.4.24 12:31</text>
-  <text>最后修改时间：2023.4.24 13:31</text>
+  <text>商品发布者：{{goodsDetail.tag}}</text>
+  <text>发布者留言：{{goodsDetail.note}}</text>
+  <text>首次创建时间：{{goodsDetail.createTime}}</text>
+  <text>最后修改时间：{{goodsDetail.updateTime}}</text>
 </view>
 
 <van-divider />
-<view class="box">
-  <text>{{goodsDetail.store}}</text>
-  <text>位置:海南省三亚市吉阳区育才路1号</text>
-</view>
 
 <van-divider />
 <view style="height: 10vh"></view>
 </view>
 
 <van-goods-action>
-  <van-goods-action-icon icon="shop-o" text="店铺" />
+  <navigator url="../storedetail/storedetail?storeId={{goodsDetail.store}}"><van-goods-action-icon icon="shop-o" text="店铺" /></navigator>
   <van-goods-action-icon icon="star-o" text="收藏" bind:click="onClickIcon" />
   <van-goods-action-button text="稍后去买" bind:click="onClickButton" color="#2A82E4"/>
 </van-goods-action>

@@ -4,8 +4,8 @@
   </view>
   <view class="top-info">
     <view>{{store.name}}</view>
-    <view><van-icon name="location-o" /><text>海南省三亚市吉阳区育才路1号</text></view>
-    <view><text>2个商品 </text><text> 0人订阅</text></view>
+    <view><van-icon name="location-o" /><text>{{store.location.address}}</text></view>
+    <view><text>{{store.goodsNumber}}个商品 </text><text> {{store.followers}}人订阅</text></view>
   </view>
   <view class="top-btn">
     <van-tag color="#2A82E4" plain size="large">+ 订阅</van-tag>
@@ -16,26 +16,20 @@
 <van-tabs active="{{ active }}">
   <!-- <van-tab title="首页"><van-empty description="首页内容为空" /></van-tab> -->
   <van-tab title="全部商品">
-
-        <view class="goodsList" >
-        <navigator class="goodsbox" wx:for="{{goodsList}}" wx:key="index" url="../goodsdetail/goodsdetail?gid={{item.gid}}">
-          <image src="{{item.image}}" mode="heightFix"></image>
-          <view class="goodsdes">
-            <text>{{item.name}}</text>
-            <text>￥{{item.price}}</text>
-            <van-tag color="#10872A" text-color="#ffffff" round size="medium">该信息由开发者提供</van-tag>
-          </view>
-            </navigator>
-        </view>
-
+    <view class="goodsList">
+      <goods-box wx:for="{{goodsList}}" wx:key="index" goods="{{item}}"></goods-box>
+    </view>
   </van-tab>
-  <!-- <van-tab title="分类"><van-empty description="分类页还没写" /></van-tab> -->
+
+
   <van-tab title="店铺简介">
     <view class="hello">
-      <text>商店发布者：开发者</text>
-      <text>发布者留言：黑超</text>
-      <text>店铺发布时间：2023.4.20 10:20</text>
-      <text>最后修改时间：2023.4.20 10:20</text>
+      <text>店铺ID：{{store.id}} </text>
+      <text class="copy" bindtap="onCopyClick">(点击复制id，用于商品发布)</text>
+      <text>店铺发布者：暂不支持查看</text>
+      <text>发布者留言：{{store.note}}</text>
+      <text>店铺发布时间：{{store.createTime}}</text>
+      <text>最后修改时间：{{store.updateTime}}</text>
     </view>
   </van-tab>
 </van-tabs>

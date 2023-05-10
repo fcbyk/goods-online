@@ -1,4 +1,6 @@
 {
   "navigationBarBackgroundColor": "#ffffff",
-  "usingComponents": {}
+  "usingComponents": {
+    "goods-box":"/components/goodsbox/goodbox"
+  }
 }

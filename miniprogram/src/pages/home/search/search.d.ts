@@ -8,7 +8,7 @@ interface SearchVM{
   ClasOptionValue:'商品'|'店铺', // 搜索类型的值
   SortOptionValue:'默认排序' | '价格排序' | '距离排序', // 搜索的排序类型的值
 
-  goodsList:Array<Goods> | null, // 商品列表
+  goodsList:Array<Object> | null, // 商品列表
   storeList:Array<StoreInfoVM> | null // 店铺列表
 }
 

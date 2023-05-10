@@ -1,6 +1,6 @@
 // 请求的服务器
-// const FCBYK:string = "https://ali.fcbyk.com"
-const APIFOX:string = "https://mock.apifox.cn/m1/2496703-0-default"
+const FCBYK:string = "https://ali.fcbyk.com"
+// const APIFOX:string = "https://mock.apifox.cn/m1/2496703-0-default"
 // const LOCALHOST:string = "http://localhost"
 
 // 错误提示
@@ -11,7 +11,7 @@ const errMsg = (msg:string):void=>{
 // 二次封装请求方法
 export const request:Request = (requestOption:RequestOption) => {
 
-  const baseUrl = APIFOX
+  const baseUrl = FCBYK
 
   return new Promise((resolve, reject) => {
       wx.showLoading({title: '努力加载中...'})

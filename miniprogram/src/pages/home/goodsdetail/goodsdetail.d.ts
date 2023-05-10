@@ -1,6 +1,6 @@
 interface GoodsDetailVM{
     goodsId:string | any //商品id
-    goodsDetail:Goods | any// 商品详情
+    goodsDetail:Object | any// 商品详情
 }
 
 interface GoodsDetailOP{
