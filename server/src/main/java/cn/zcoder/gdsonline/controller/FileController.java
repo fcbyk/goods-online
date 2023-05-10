@@ -1,5 +1,6 @@
 package cn.zcoder.gdsonline.controller;
 
+import cn.zcoder.gdsonline.common.Result;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,7 +20,7 @@ public class FileController {
     private String basePath;
 
     // 文件上传
-    @PostMapping("/upload")
+    @PostMapping
     public String upload(MultipartFile file) throws IOException {
 
         // 原始文件名
@@ -68,6 +69,16 @@ public class FileController {
         }
         outputStream.close();
         fileInputStream.close();
+    }
+
+    // 删除文件
+    @DeleteMapping("/{name}")
+    public Result<Boolean> delete(@PathVariable String name){
+        File file = new File(basePath,name);
+        if (file.exists()) {
+            return Result.success(file.delete());
+        }
+        return Result.success(false);
     }
 
 }

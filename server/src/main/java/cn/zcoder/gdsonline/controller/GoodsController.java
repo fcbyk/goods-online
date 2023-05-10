@@ -108,6 +108,4 @@ public class GoodsController {
 
         return Result.success(goodsService.updateById(goods));
     }
-
-    // 修改集合
 }

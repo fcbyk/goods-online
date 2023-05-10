@@ -3,7 +3,9 @@ package cn.zcoder.gdsonline.controller;
 import cn.zcoder.gdsonline.dto.AlterUserListDto;
 import cn.zcoder.gdsonline.dto.Code2SessionDto;
 import cn.zcoder.gdsonline.common.Result;
+import cn.zcoder.gdsonline.entity.Store;
 import cn.zcoder.gdsonline.entity.User;
+import cn.zcoder.gdsonline.service.StoreService;
 import cn.zcoder.gdsonline.service.UserService;
 import cn.zcoder.gdsonline.utils.LoginRequestUtil;
 import cn.zcoder.gdsonline.vo.GoodsInfoVO;
@@ -25,6 +27,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private StoreService storeService;
 
     // 微信授权登录
     @PostMapping
@@ -97,6 +102,7 @@ public class UserController {
 
         String id = request.getHeader("Identity");
         User user = userService.getById(id);
+        Store store = storeService.getById(alterUserListDto.getValue());
         List<String> list;
         Set<String> set = new HashSet<>();
 
@@ -116,8 +122,14 @@ public class UserController {
         }
 
         switch (alterUserListDto.getMethod()) {
-            case "add" -> set.add(alterUserListDto.getValue());
-            case "remove" -> set.remove(alterUserListDto.getValue());
+            case "add" -> {
+                set.add(alterUserListDto.getValue());
+                store.setFollowers(store.getFollowers()+1);
+            }
+            case "remove" -> {
+                set.remove(alterUserListDto.getValue());
+                store.setFollowers(store.getFollowers()-1);
+            }
         }
 
         switch (alterUserListDto.getClas()){
@@ -125,6 +137,8 @@ public class UserController {
             case "star-goods" -> user.setStarGoods(JSON.toJSONString(set));
             case "star-store" -> user.setStarStores(JSON.toJSONString(set));
         }
+
+        storeService.updateById(store);
 
         return Result.success(userService.updateById(user));
     }
