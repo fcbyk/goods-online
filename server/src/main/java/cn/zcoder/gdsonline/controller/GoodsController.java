@@ -57,6 +57,12 @@ public class GoodsController {
         return Result.success(goodsService.search(key));
     }
 
+    // 根据关键词搜索(价格排序)
+    @GetMapping("/searchasc/{key}")
+    public Result<List<GoodsInfoVO>> searchasc(@PathVariable String key){
+        return Result.success(goodsService.searchasc(key));
+    }
+
     // 新增商品
     @PostMapping
     public Result<Boolean> addGoods(@RequestBody AddGoodsDto addGoodsDto, HttpServletRequest request){

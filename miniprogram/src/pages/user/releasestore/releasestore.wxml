@@ -8,7 +8,7 @@
 
 <van-cell-group>
   <van-field
-    value="{{ username }}"
+    model:value="{{ name }}"
     required
     clearable
     label="店铺名称"
@@ -18,8 +18,7 @@
   />
 
   <van-field
-    value="{{ password }}"
-    type="password"
+    model:value="{{ type }}"
     label="店铺类型"
     placeholder="请填写店铺类型"
     required
@@ -28,14 +27,15 @@
 
 <van-cell-group>
   <van-field
-    value="{{ sms }}"
+    model:value="{{ location.address }}"
     center
     clearable
     label="位置"
     use-button-slot
     required
+    disabled
   >
-    <van-button slot="button" size="small" type="primary">
+    <van-button slot="button" size="small" type="primary" bind:click="chooseLocation">
       选择位置
     </van-button>
   </van-field>
@@ -43,10 +43,14 @@
 
 <van-cell-group>
   <van-field
-    value="{{ message }}"
+    model:value="{{ note }}"
     label="备注"
     type="textarea"
     placeholder="您可以在这里可以补充一些说明信息"
     autosize
   />
 </van-cell-group>
+
+<view class="post" bindtap="release">
+立即发布
+</view>

@@ -102,7 +102,6 @@ public class UserController {
 
         String id = request.getHeader("Identity");
         User user = userService.getById(id);
-        Store store = storeService.getById(alterUserListDto.getValue());
         List<String> list;
         Set<String> set = new HashSet<>();
 
@@ -122,14 +121,19 @@ public class UserController {
         }
 
         switch (alterUserListDto.getMethod()) {
-            case "add" -> {
-                set.add(alterUserListDto.getValue());
+            case "add" -> set.add(alterUserListDto.getValue());
+            case "remove" -> set.remove(alterUserListDto.getValue());
+        }
+
+        if(alterUserListDto.getClas().equals("star-store")){
+            Store store = storeService.getById(alterUserListDto.getValue());
+            if(alterUserListDto.getMethod().equals("add")){
                 store.setFollowers(store.getFollowers()+1);
             }
-            case "remove" -> {
-                set.remove(alterUserListDto.getValue());
+            if(alterUserListDto.getMethod().equals("remove")){
                 store.setFollowers(store.getFollowers()-1);
             }
+            storeService.updateById(store);
         }
 
         switch (alterUserListDto.getClas()){
@@ -137,8 +141,6 @@ public class UserController {
             case "star-goods" -> user.setStarGoods(JSON.toJSONString(set));
             case "star-store" -> user.setStarStores(JSON.toJSONString(set));
         }
-
-        storeService.updateById(store);
 
         return Result.success(userService.updateById(user));
     }

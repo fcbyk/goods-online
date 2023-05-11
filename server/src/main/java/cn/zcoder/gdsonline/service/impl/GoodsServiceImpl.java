@@ -37,4 +37,17 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
 
         return list;
     }
+
+    public List<GoodsInfoVO> searchasc(String key){
+        List<GoodsInfoVO> list= goodsMapper.searchasc("%"+key+"%");
+
+        for (int i = 0; i < list.size(); i++){
+            GoodsInfoVO goodsInfoVO = list.get(i);
+            goodsInfoVO.setImg(JSON.parseArray(goodsInfoVO.getImg()).get(0).toString());
+            goodsInfoVO.setLocation(JSON.parseObject(goodsInfoVO.getLocation().toString(), Location.class));
+            list.set(i,goodsInfoVO);
+        }
+
+        return list;
+    }
 }

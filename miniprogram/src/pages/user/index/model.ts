@@ -4,23 +4,23 @@ let cellLsit =  [
     {
       icon:"edit",
       name:"发布商品",
-      url:"../c-goods/c-goods"
+      url:"../releasegoods/releasegoods"
     },
     {
       icon:"shop-o",
       name:"发布店铺",
-      url:"../c-store/c-store"
+      url:"../releasestore/releasestore"
     },
     {
       icon:"passed",
       name:"我的发布",
-      url:"../box/box"
+      url:"../myrelease/myrelease"
     },
-    {
-      icon:"description",
-      name:"草稿箱",
-      url:"../dev/dev"
-    }
+    // {
+    //   icon:"description",
+    //   name:"草稿箱",
+    //   url:"../dev/dev"
+    // }
   ],
 
   // 店铺相关
@@ -37,17 +37,17 @@ let collectList = [
   {
     icon:"star-o",
     name:"收藏",
-    url:"../star-g/star-g"
+    url:"../stargoods/stargoods"
   },
   {
     icon:"shop-collect-o",
     name:"订阅店铺",
-    url:"../star-s/star-s"
+    url:"../starstore/starstore"
   },
   {
     icon:"underway-o",
     name:"足迹",
-    url:"../store-s-list/store-s-list"
+    url:"../history/history"
   }
 ]
 

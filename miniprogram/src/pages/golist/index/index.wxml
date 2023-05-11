@@ -1,8 +1,10 @@
+<!-- 未登录 -->
 <view wx:if="{{!isLogin}}" class="logout">
   <image src="/assets/img/你还未登录哦.svg"></image>
   <text>你还未登录哦</text>
 </view>
 
+<!-- 列表为空 -->
 <view wx:elif="{{golist.length==0}}" class="logout">
     <image src="/assets/img/空空如也.svg"></image>
     <text>这里空空如也，快去逛逛吧</text>
@@ -14,26 +16,33 @@
   
   <!-- 遍历想买的商品 -->
   <view class="card" wx:for="{{golist}}" wx:key="index">
+
     <van-swipe-cell right-width="{{ 100 }}" left-width="{{ 100 }}"bind:click="swipeCell" data-index="{{index}}">
+
         <view slot="left" class="card-right left" data-index="{{index}}">去买</view>
-        <navigator class="card-contain" url="../detail/detail?gid={{item.id}}">
+
+        <navigator class="card-contain" url="../../home/goodsdetail/goodsdetail?goodsId={{item.id}}">
             <image src="{{item.img}}" mode="heightFix"></image>
             <view class="item">
               <text>{{item.name}}</text>
-              <view><van-icon name="shop-o" /> {{item.store}}</view>
+              <view><van-icon name="shop-o" /> {{item.storeName}}</view>
               <text>￥{{item.price}}</text>
             </view>
         </navigator>
+
         <view slot="right" class="card-right" data-index="{{index}}">删除</view>
+
     </van-swipe-cell>
   </view>
 
+
+<!-- 出行路线 -->
   <view class="bottom">
       <view>
         <text>合计</text>
         <text>￥{{sum}}</text>
       </view>
-      <navigator url="../going/going">生成出行路线</navigator>
+      <view class="going" bindtap="noGoing">生成出行路线</view>
   </view>
 </view>
 

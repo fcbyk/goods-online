@@ -1,3 +1,4 @@
+import Toast from "../../../miniprogram_npm/@vant/weapp/toast/toast"
 import { request } from "../../../utils/request"
 
 Page<any,any>({
@@ -41,6 +42,32 @@ Page<any,any>({
           title: '复制成功',
         })
       }
+    })
+  },
+
+  addstar(){
+    request({
+      url:"/user/list",
+      method:"PUT",
+      data:{
+        clas: "star-store",
+        method: "add",
+        value: this.data.sid
+      }
+    }).then((res)=>{
+        if(res.data == true){
+          request({
+            url:"/user/star-stores",
+            method:"GET",
+          }).then((res)=>{
+            wx.setStorageSync("star-stores",res.data)
+          })
+        }
+    })
+    Toast({
+      message:'订阅成功',
+      type:'success',
+      duration:2000
     })
   }
 })

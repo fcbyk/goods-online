@@ -21,9 +21,6 @@
   <text>最后修改时间：{{goodsDetail.updateTime}}</text>
 </view>
 
-<van-divider />
-
-<van-divider />
 <view style="height: 10vh"></view>
 </view>
 
@@ -32,3 +29,6 @@
   <van-goods-action-icon icon="star-o" text="收藏" bind:click="onClickIcon" />
   <van-goods-action-button text="稍后去买" bind:click="onClickButton" color="#2A82E4"/>
 </van-goods-action>
+
+<!-- 错误提示框 -->
+<van-toast id="van-toast" />

@@ -7,7 +7,13 @@
 
 <van-divider contentPosition="left" customStyle="color: #1989fa; border-color: #1989fa;">商品图片</van-divider>
 
-<van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" deletable="{{ true }}"/>
+<van-uploader 
+file-list="{{ fileList }}" 
+bind:after-read="afterRead" 
+deletable="{{ true }}"
+bind:delete="delete"
+max-count="6"
+/>
 
 <van-notice-bar
   color="#393939b6"
@@ -17,17 +23,15 @@
 
 <van-cell-group>
   <van-field
-    value="{{ username }}"
+    model:value="{{ name }}"
     required
     clearable
     label="商品名称"
-    icon="question-o"
     placeholder="请输入商品名称"
-    bind:click-icon="onClickIcon"
   />
 
   <van-field
-    value="{{ password }}"
+    model:value="{{ price }}"
     label="价格"
     placeholder="请填写价格"
     required
@@ -36,25 +40,27 @@
 
 <van-cell-group>
   <van-field
-    value="{{ sms }}"
+    model:value="{{ store }}"
     center
     clearable
-    label="所属店铺"
+    label="所属店铺ID"
+    placeholder="请前往店铺主页获取"
     use-button-slot
     required
   >
-    <van-button slot="button" size="small" type="primary">
-      选择店铺
-    </van-button>
   </van-field>
 </van-cell-group>
 
 <van-cell-group>
   <van-field
-    value="{{ message }}"
+    model:value="{{ note }}"
     label="备注"
     type="textarea"
     placeholder="您可以在这里可以补充一些说明信息"
     autosize
   />
 </van-cell-group>
+
+<view class="post" bindtap="release">
+立即发布
+</view>

@@ -24,4 +24,9 @@ public interface GoodsMapper extends BaseMapper<Goods> {
             "store.id as storeId,store.name as storeName,store.location as location " +
             "from goods INNER JOIN store ON goods.store = store.id where goods.id = #{gid}")
     public GoodsInfoVO getGoodsInfoById(String gid);
+
+    @Select("select goods.id, goods.name, goods.imglist as img, goods.price,goods.tag," +
+            "store.id as storeId,store.name as storeName,store.location as location " +
+            "from goods INNER JOIN store ON goods.store = store.id where goods.name like #{key} and goods.status = '已发布' ORDER BY goods.price ASC")
+    public List<GoodsInfoVO> searchasc(String key);
 }

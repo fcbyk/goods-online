@@ -13,4 +13,7 @@ interface StoreDetailOP{
 
   // 打开地图
   goto():void
+
+  // 商店订阅
+  addstar():void
 }

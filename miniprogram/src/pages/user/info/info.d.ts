@@ -1,6 +1,7 @@
 interface InfoVM{
   avatarUrl:string
   nickname:string
+  deleteAvartar:string
 }
 
 interface InfoOP{

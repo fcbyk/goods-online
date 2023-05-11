@@ -8,7 +8,7 @@
     <view><text>{{store.goodsNumber}}个商品 </text><text> {{store.followers}}人订阅</text></view>
   </view>
   <view class="top-btn">
-    <van-tag color="#2A82E4" plain size="large">+ 订阅</van-tag>
+    <van-tag color="#2A82E4" plain size="large" bindtap="addstar">+ 订阅</van-tag>
     <van-tag color="#2A82E4" plain size="large" bindtap="goto">到店</van-tag>
   </view>
 </view>
@@ -25,7 +25,7 @@
   <van-tab title="店铺简介">
     <view class="hello">
       <text>店铺ID：{{store.id}} </text>
-      <text class="copy" bindtap="onCopyClick">(点击复制id，用于商品发布)</text>
+      <text class="copy" bindtap="onCopyClick">(点击复制店铺id，用于商品发布)</text>
       <text>店铺发布者：暂不支持查看</text>
       <text>发布者留言：{{store.note}}</text>
       <text>店铺发布时间：{{store.createTime}}</text>
@@ -33,3 +33,7 @@
     </view>
   </van-tab>
 </van-tabs>
+
+
+<!-- 错误提示框 -->
+<van-toast id="van-toast" />

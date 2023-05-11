@@ -1,75 +1,69 @@
+import { request, uploadFile } from "../../../utils/request";
 
 Page<any,any>({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     fileList: [],
+    name: "",
+    imglist: [],
+    store: "",
+    price: null,
+    note: ""
   },
 
   afterRead(event:any){
     const { file } = event.detail
     console.log(file)
-    const { fileList = [] } = this.data;
+    const { fileList,imglist } = this.data;
     fileList.push(file);
-    this.setData({ fileList });
+    // 图片上传
+    uploadFile(file.url).then((res)=>{
+      // 添加上传数组
+      imglist.push("https://ali.fcbyk.com/file/"+res.data)
+      this.setData({ fileList,imglist })
+    })
   },
 
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad() {
-
+  delete(event:any){
+    const { fileList,imglist } = this.data
+     // 删除上传数组
+    const str = this.data.imglist[event.detail.index];
+    const index = str.lastIndexOf("/");
+    const result = str.substring(index + 1);
+    // 删除服务器图片
+    request({
+      url:"/file/"+result,
+      method:"DELETE"
+    }).then(()=>{
+      fileList.splice(event.detail.index, 1)
+      imglist.splice(event.detail.index, 1)
+      this.setData({ fileList,imglist })
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  release(){
+    request({
+      url:"/goods",
+      method:"POST",
+      data:{
+        name: this.data.name,
+        imglist: this.data.imglist,
+        store: this.data.store,
+        price: this.data.price,
+        note: this.data.note
+      }
+    }).then((res)=>{
+      if(res.data == true){
+        wx.navigateBack()
+        wx.showToast({
+          title:"发布成功"
+        })
+      }else{
+        wx.showToast({
+          icon:"error",
+          title:"未知异常"
+        })
+      }
+    })
   }
 })

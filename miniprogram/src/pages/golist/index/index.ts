@@ -1,18 +1,13 @@
 import { request } from "../../../utils/request"
 
 
-Page({
+Page<any,any>({
 
   data: {
     isLogin:false,
     golist:[{
-      id:"",
-      location:{
-        address: "海南省三亚市吉阳区育才路1号",
-        latitude: 18.315919,
-        longitude: 109.532613,
-        name: "爱心超市",
-      }
+      id:null,
+      location:null
     }],
     sum:0
   },
@@ -39,7 +34,7 @@ Page({
 
   goto(){
     wx.switchTab({
-      url:"../tab1/tab1"
+      url:"../../home/index/index"
     })
   },
 
@@ -48,17 +43,15 @@ Page({
     let golist = this.data.golist
     if(event.detail == "right"){
       request({
-        url:"/user",
+        url:"/user/list",
         method:"PUT",
         data:{
-          clas:"golist",
-          data:{
-            method:"delete",
-            value:golist[index].id
-          }
+          clas: "golist",
+          method: "remove",
+          value: golist[index].id
         }
-      }).then((res:any)=>{
-        if(res.data.data == true){
+      }).then((res)=>{
+        if(res.data == true){
           golist.splice(index,1)
           wx.setStorageSync('golist', golist)
           this.setSum()
@@ -81,5 +74,12 @@ Page({
           name: location.name,
         })
     }
+  },
+
+  noGoing(){
+    wx.showToast({
+      icon:"error",
+      title:"暂不支持...."
+    })
   }
 })

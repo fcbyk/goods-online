@@ -3,14 +3,20 @@ import { request, uploadFile } from "../../../utils/request"
 Page<InfoVM,InfoOP>({
   data: {
     avatarUrl: "",
-    nickname: ""
+    nickname: "",
+    deleteAvartar:""
   },
 
   onChooseAvatar(e:any) {
-    const { avatarUrl } = e.detail 
-    // this.uploadAvatar(avatarUrl)
-    uploadFile(avatarUrl,"/avatar").then((res)=>{
-      console.log(res)
+    const { avatarUrl } = e.detail
+    uploadFile(avatarUrl).then((res)=>{
+      const str = this.data.avatarUrl;
+      const index = str.lastIndexOf("/");
+      const result = str.substring(index + 1);
+      this.setData({
+        deleteAvartar:result,
+        avatarUrl:"https://ali.fcbyk.com/file/"+res.data
+      })
     })
   },
 
@@ -20,15 +26,19 @@ Page<InfoVM,InfoOP>({
       temp.avatar = this.data.avatarUrl
       temp.name = this.data.nickname
       request({
-        url:"/user",
+        url:"/user/info",
         method:"PUT",
         data:{
-          clas:"info",
-          data:temp
+          name:temp.name,
+          avatar:temp.avatar
         }
       }).then((res:any)=>{
-          if(res.data.data == true){
+          if(res.data == true){
             wx.setStorageSync("identity",temp)
+            request({
+              url:"/file/"+this.data.deleteAvartar,
+              method:"DELETE"
+            })
             wx.switchTab({url:'../index/index'})
           }else{
             wx.showToast({
@@ -41,13 +51,8 @@ Page<InfoVM,InfoOP>({
 
   // 退出登录
   logout(){
-    wx.removeStorage({
-      key: 'identity',
-      success () {
-        wx.clearStorage()
-        wx.switchTab({url:'../index/index'})
-      }
-    })
+      wx.clearStorage()
+      wx.switchTab({url:'../index/index'})
   },
 
   onShow(){
@@ -56,39 +61,5 @@ Page<InfoVM,InfoOP>({
       avatarUrl: user.avatar,
       nickname: user.name
     })
-  },
-
-    // 头像上传
-    // uploadAvatar(filePath:string){
-    //   return new Promise((resolve, reject)=>{
-    //     wx.uploadFile({
-    //       url:"https://ali.fcbyk.com/file/upload",
-    //       filePath,
-    //       name:"file",
-    //       header:{
-    //         Path:"/avatar"
-    //       },
-    //       success: (res:any) =>{
-    //         if(JSON.parse(res.data).data){
-    //           this.setData({
-    //             avatarUrl:"https://ali.fcbyk.com/file/avatar/" + JSON.parse(res.data).data
-    //           })
-    //         }else{
-    //           wx.showToast({
-    //             icon:"error",
-    //             title:"服务器异常1"
-    //           })
-    //         }
-    //         resolve(res)
-    //       },
-    //       fail:(err)=>{
-    //         reject(err)
-    //         wx.showToast({
-    //           icon:"error",
-    //           title:"服务器异常2"
-    //         })
-    //       }
-    //     })
-    //   })
-    // }
+  }
 })

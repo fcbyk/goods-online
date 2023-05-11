@@ -1,7 +1,7 @@
 <view style="height: 10rpx;"></view>
 <van-cell-group>
-  <van-cell title="反馈与帮助" is-link  url="../dev/dev" size="large" />
-  <van-cell title="关于线上逛店" is-link  url="../dev/dev" size="large" />
+  <van-cell title="反馈与帮助" is-link  url="../feedback/feedback" size="large" />
+  <van-cell title="关于线上逛店" is-link  url="../about/about" size="large" />
 </van-cell-group>
 
 <view style="height: 30rpx;"></view>

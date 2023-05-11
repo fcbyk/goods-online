@@ -5,14 +5,19 @@
     "pages/home/search/search",
     "pages/home/goodsdetail/goodsdetail",
     "pages/home/storedetail/storedetail",
-
     "pages/golist/index/index",
-
     "pages/user/index/index",
     "pages/user/info/info",
     "pages/user/more/more",
     "pages/user/releasegoods/releasegoods",
-    "pages/user/releasestore/releasestore"
+    "pages/user/releasestore/releasestore",
+    "pages/user/myrelease/myrelease",
+    "pages/user/boss/boss",
+    "pages/user/stargoods/stargoods",
+    "pages/user/starstore/starstore",
+    "pages/user/history/history",
+    "pages/user/about/about",
+    "pages/user/feedback/feedback"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -66,5 +71,17 @@
     "van-button": "@vant/weapp/button/index",
     "van-swipe-cell": "@vant/weapp/swipe-cell/index",
     "van-popup": "@vant/weapp/popup/index"
-  }
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "requiredPrivateInfos": [
+    "getLocation",
+    "onLocationChange",
+    "startLocationUpdateBackground",
+    "chooseAddress",
+    "chooseLocation"
+  ]
 }

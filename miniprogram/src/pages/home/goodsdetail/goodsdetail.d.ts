@@ -13,4 +13,10 @@ interface GoodsDetailOP{
 
   // 点击预览图片
   preImg(e:any):void
+
+  // 收藏商品
+  onClickIcon():void
+
+  // 添加待去买
+  onClickButton():void
 }

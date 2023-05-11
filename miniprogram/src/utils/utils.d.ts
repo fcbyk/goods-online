@@ -9,4 +9,4 @@ interface RequestOption{
 type Request = (requestOption:RequestOption)=>Promise<any>
 
 // 封装wx.uploadFile()方法
-type UploadFile = (filePath:string,where:"/avatar"|"/goods") => Promise<any>
+type UploadFile = (filePath:string) => Promise<any>

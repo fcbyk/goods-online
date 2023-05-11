@@ -19,9 +19,9 @@ export const request:Request = (requestOption:RequestOption) => {
 
           // 请求配置
           ...requestOption,
-          header: {'Identity': wx.getStorageSync("identity").userid},
+          header: {'Identity': wx.getStorageSync("identity").id},
           url: baseUrl + requestOption.url,
-          timeout:5000,
+          timeout:10000,
 
           // 成功的回调
           success: (res) => {
@@ -42,17 +42,13 @@ export const request:Request = (requestOption:RequestOption) => {
   })
 }
 
-export const uploadFile:UploadFile = (filePath:string,where:"/avatar"|"/goods") => {
+export const uploadFile:UploadFile = (filePath:string) => {
   return new Promise((resolve, reject)=>{
 
     wx.uploadFile({
-      url:"https://ali.fcbyk.com/file/upload",
+      url:"https://ali.fcbyk.com/file",
       filePath,
       name:"file",
-      header:{
-        Path: where
-      },
-
       success: (res:any) =>{
         resolve(res)
         if(res.statusCode == 404) errMsg("404没找到")
