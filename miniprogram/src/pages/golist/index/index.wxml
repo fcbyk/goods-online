@@ -1,11 +1,6 @@
-<!-- 未登录 -->
-<view wx:if="{{!isLogin}}" class="logout">
-  <image src="/assets/img/你还未登录哦.svg"></image>
-  <text>你还未登录哦</text>
-</view>
 
 <!-- 列表为空 -->
-<view wx:elif="{{golist.length==0}}" class="logout">
+<view wx:if="{{golist.length==0}}" class="logout">
     <image src="/assets/img/空空如也.svg"></image>
     <text>这里空空如也，快去逛逛吧</text>
     <view style="height: 30rpx"></view>
@@ -35,6 +30,7 @@
     </van-swipe-cell>
   </view>
 
+<view style="height: 130rpx;"></view>
 
 <!-- 出行路线 -->
   <view class="bottom">

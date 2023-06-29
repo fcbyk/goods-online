@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "我的商品收藏夹",
-  "usingComponents": {
-    "van-empty": "@vant/weapp/empty/index",
-    "van-swipe-cell": "@vant/weapp/swipe-cell/index"
-  }
-}

@@ -10,6 +10,12 @@
     </navigator>
 </view>
 
+<!-- 提示 -->
+<van-notice-bar
+  text="当前数据较少，仅校园店铺存在店铺信息"
+  mode="closeable"
+/>
+
 <!-- 第三部分：分类 -->
 <view class="clas">
   <navigator url="{{item.url}}?clas={{item.name}}" open-type="navigate" wx:for="{{clasList}}" wx:key="index">

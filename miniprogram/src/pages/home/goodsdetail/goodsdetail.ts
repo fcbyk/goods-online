@@ -28,54 +28,49 @@ Page<GoodsDetailVM,GoodsDetailOP>({
   },
 
   onClickIcon(){
-    request({
-      url:"/user/list",
-      method:"PUT",
-      data:{
-        clas: "star-goods",
-        method: "add",
-        value: this.data.goodsId
-      }
-    }).then((res)=>{
-        if(res.data == true){
-          request({
-            url:"/user/star-goods",
-            method:"GET",
-          }).then((res)=>{
-            wx.setStorageSync("star-goods",res.data)
-          })
-        }
-    })
-    Toast({
-      message:'收藏成功',
-      type:'success',
-      duration:2000
-    })
+      Toast({
+        message:'未登录',
+        duration:2000
+      })
   },
 
   onClickButton(){
-    request({
-      url:"/user/list",
-      method:"PUT",
-      data:{
-        clas: "golist",
-        method: "add",
-        value: this.data.goodsId
-      }
-    }).then((res)=>{
-        if(res.data == true){
-          request({
-            url:"/user/golist",
-            method:"GET",
-          }).then((res)=>{
-            wx.setStorageSync("golist",res.data)
+      let golist = wx.getStorageSync("golist")
+      if(!golist) golist = []
+      let goods:GoodsInfoVM = {
+        id:this.data.goodsId,
+        tag: this.data.goodsDetail.tag,
+        img: this.data.goodsDetail.imglist[0],
+        name: this.data.goodsDetail.name,
+        storeId: this.data.goodsDetail.store,
+        price: this.data.goodsDetail.price,
+      };
+
+      request({
+        method:"GET",
+        url:"/store/detail/"+goods.storeId
+      }).then((res)=>{
+        goods.location = res.data.location
+        goods.storeName = res.data.name
+      }).then(()=>{
+        let isObjectInArray:boolean = golist.some((obj:any)=> {
+          return obj.id === this.data.goodsId;
+        });
+        if (!isObjectInArray){
+          golist.push(goods)
+          wx.setStorageSync("golist",golist)
+          Toast({
+            message:'添加成功',
+            type:'success',
+            duration:2000
+          })
+        }else{
+          Toast({
+            message:'已存在列表中',
+            type:'fail',
+            duration:2000
           })
         }
-    })
-    Toast({
-      message:'添加成功',
-      type:'success',
-      duration:2000
-    })
+      })
   }
 })

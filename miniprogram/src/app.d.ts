@@ -3,8 +3,6 @@
 /// <reference path="./pages/home/search/search.d.ts" />
 /// <reference path="./pages/home/goodsdetail/goodsdetail.d.ts" />
 /// <reference path="./pages/home/storedetail/storedetail.d.ts" />
-/// <reference path="./pages/user/index/index.d.ts" />
-/// <reference path="./pages/user/info/info.d.ts" />
 /// <reference path="./utils/utils.d.ts" />
 
 
@@ -28,10 +26,10 @@ interface GoodsInfoVM{
   img: string; // 商品主图
   name: string; // 商品名称
   storeId: string; // 商店id
-  storeName:string; // 商店名称
+  storeName?:string; // 商店名称
   price: number; // 价格
+  location?:Location // 位置
 }
-
 
 // 用户实体
 interface User {

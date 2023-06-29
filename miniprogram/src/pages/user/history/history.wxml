@@ -1,4 +1,0 @@
-
-  <view style="height: 200rpx;"></view>
-
-  <van-empty image="error" description="很抱歉，足迹功能还没写" />

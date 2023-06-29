@@ -1,4 +1,7 @@
 {
   "navigationBarBackgroundColor": "#2A82E4",
-  "navigationBarTextStyle": "white"
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "van-notice-bar": "@vant/weapp/notice-bar/index"
+  }
 }

@@ -1,63 +1,8 @@
-<view style="height: 10vh;background-color: #ffffff;"></view>
 
-<!-- 点击登录 -->
-<view class="login" wx:if="{{!isLogin}}" bindtap="popup">
-  <view class="img">
-    <image src="/assets/img/logout.jpeg" mode="widthFix"></image>
-  </view>
-  <view class="info">
-    <text>点击登录</text>
-  </view>
+
+<image src="/assets/img/user.jpg" mode="widthFix" bindtap="preImg"></image>
+<view class="desc">
+  <view>商品发布等功能因涉及用户自行生成内容</view>
+  <view>个人主体的小程序暂不支持</view>
+  <view>该部分功能请前往体验版或开发版进行体验</view>
 </view>
-
-<!-- 用户信息 -->
-<navigator class="login" wx:else open-type="navigate" url="../info/info">
-  <view class="img">
-    <image src="{{userInfo.avatar}}" mode="widthFix"></image>
-  </view>
-  <view class="info" >
-    <text>{{userInfo.name}}</text>
-  </view>
-</navigator>
-
-
-<!-- 收藏 -->
-<view class="collect">
-  <navigator class="col-item" wx:for="{{collectList}}" wx:key="index" url="{{isLogin?item.url:'.'}}" open-type="navigate" bindtap="logoutToast">
-    <van-icon name="{{item.icon}}" size="30px"/>
-    <text>{{item.name}}</text>
-  </navigator>
-</view>
-
-<!-- 单元格子 -->
-<view wx:for="{{cellLsit}}" wx:key="index" wx:for-item="cell">
-  <van-cell-group wx:for="{{cell}}" wx:key="index" bindtap="logoutToast">
-    <van-cell title="{{item.name}}" is-link icon="{{item.icon}}" url="{{isLogin?item.url:''}}" size="large"/>
-  </van-cell-group>
-  <view style="height: 30rpx;"></view>
-</view>
-
-<van-cell-group>
-  <van-cell title="更多" is-link  url="../more/more" size="large" icon="ellipsis"/>
-</van-cell-group>
-
-
-<!-- 弹窗盒子 -->
-<van-popup
-  show="{{ popupIsShow }}"
-  round
-  position="bottom"
->
-<view class="popup">
-  <text>获取你的微信id</text>
-  <text>用于小程序登录</text>
-  <view>
-    <view class="loginbtn refuse" bindtap="onClosePopup">拒绝</view>
-    <view class="loginbtn allow" bindtap="login">允许</view>
-  </view>
-</view>
-</van-popup>
-
-
-<!-- 错误提示框 -->
-<van-toast id="van-toast" />

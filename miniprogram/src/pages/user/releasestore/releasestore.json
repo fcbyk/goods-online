@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "店铺发布",
-  "usingComponents": {
-    "van-field": "@vant/weapp/field/index",
-    "van-uploader": "@vant/weapp/uploader/index",
-    "van-button": "@vant/weapp/button/index",
-    "van-notice-bar": "@vant/weapp/notice-bar/index"
-  }
-}

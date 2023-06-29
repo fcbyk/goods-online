@@ -46,27 +46,8 @@ Page<any,any>({
   },
 
   addstar(){
-    request({
-      url:"/user/list",
-      method:"PUT",
-      data:{
-        clas: "star-store",
-        method: "add",
-        value: this.data.sid
-      }
-    }).then((res)=>{
-        if(res.data == true){
-          request({
-            url:"/user/star-stores",
-            method:"GET",
-          }).then((res)=>{
-            wx.setStorageSync("star-stores",res.data)
-          })
-        }
-    })
     Toast({
-      message:'订阅成功',
-      type:'success',
+      message:'未登录',
       duration:2000
     })
   }

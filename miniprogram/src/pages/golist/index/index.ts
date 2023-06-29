@@ -1,6 +1,3 @@
-import { request } from "../../../utils/request"
-
-
 Page<any,any>({
 
   data: {
@@ -9,7 +6,7 @@ Page<any,any>({
       id:null,
       location:null
     }],
-    sum:0
+    sum:"0"
   },
 
   onShow() {
@@ -23,15 +20,16 @@ Page<any,any>({
     })
   },
 
-  setSum(){
-    let golist = wx.getStorageSync("golist")
-    let sum = 0
+  setSum() {
+    let golist = wx.getStorageSync("golist");
+    let sum = 0;
     golist.forEach((element:any) => {
-      sum = sum + element.price
+      sum += element.price;
     });
-    this.setData({sum})
+    let sumStr = sum.toFixed(2); // 保留两位小数
+    this.setData({ sum:sumStr });
   },
-
+  
   goto(){
     wx.switchTab({
       url:"../../home/index/index"
@@ -42,27 +40,10 @@ Page<any,any>({
     let index = event.currentTarget.dataset.index
     let golist = this.data.golist
     if(event.detail == "right"){
-      request({
-        url:"/user/list",
-        method:"PUT",
-        data:{
-          clas: "golist",
-          method: "remove",
-          value: golist[index].id
-        }
-      }).then((res)=>{
-        if(res.data == true){
           golist.splice(index,1)
           wx.setStorageSync('golist', golist)
           this.setSum()
           this.setData({golist})
-        }else{
-          wx.showToast({
-            icon:"error",
-            title:"服务器未知异常"
-          })
-        }
-      })
     }
     
     if(event.detail == "left"){
